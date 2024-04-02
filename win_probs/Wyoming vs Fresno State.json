@@ -1,0 +1,756 @@
+[{
+	"play_number": 0,
+	"play_id": 401532591101849905,
+	"home_win_prob": 0.447694242,
+	"utc": 1696723594
+}, {
+	"play_number": 1,
+	"play_id": 401532591101849906,
+	"home_win_prob": 0.4506239891,
+	"utc": 1696723594
+}, {
+	"play_number": 2,
+	"play_id": 401532591101849907,
+	"home_win_prob": 0.4508348703,
+	"utc": 1696723594
+}, {
+	"play_number": 3,
+	"play_id": 401532591101858401,
+	"home_win_prob": 0.4766244888,
+	"utc": 1696723751
+}, {
+	"play_number": 4,
+	"play_id": 401532591101858413,
+	"home_win_prob": 0.4766244888,
+	"utc": 1696723751
+}, {
+	"play_number": 5,
+	"play_id": 401532591101858402,
+	"home_win_prob": 0.5141614079,
+	"utc": 1696723751
+}, {
+	"play_number": 6,
+	"play_id": 401532591101858403,
+	"home_win_prob": 0.5346083045,
+	"utc": 1696723751
+}, {
+	"play_number": 7,
+	"play_id": 401532591101858404,
+	"home_win_prob": 0.5113373995,
+	"utc": 1696723751
+}, {
+	"play_number": 8,
+	"play_id": 401532591101858405,
+	"home_win_prob": 0.5371825099,
+	"utc": 1696723751
+}, {
+	"play_number": 9,
+	"play_id": 401532591101858406,
+	"home_win_prob": 0.5525661111,
+	"utc": 1696723751
+}, {
+	"play_number": 10,
+	"play_id": 401532591101858407,
+	"home_win_prob": 0.5556434989,
+	"utc": 1696723751
+}, {
+	"play_number": 11,
+	"play_id": 401532591101858408,
+	"home_win_prob": 0.5520899892,
+	"utc": 1696723751
+}, {
+	"play_number": 12,
+	"play_id": 401532591101858409,
+	"home_win_prob": 0.5862959027,
+	"utc": 1696723751
+}, {
+	"play_number": 13,
+	"play_id": 401532591101858410,
+	"home_win_prob": 0.5814057589,
+	"utc": 1696723751
+}, {
+	"play_number": 14,
+	"play_id": 401532591101858411,
+	"home_win_prob": 0.6302961707,
+	"utc": 1696723751
+}, {
+	"play_number": 15,
+	"play_id": 401532591101858412,
+	"home_win_prob": 0.6242421865,
+	"utc": 1696723751
+}, {
+	"play_number": 16,
+	"play_id": 401532591101929601,
+	"home_win_prob": 0.5647163987,
+	"utc": 1696725516
+}, {
+	"play_number": 17,
+	"play_id": 401532591101934001,
+	"home_win_prob": 0.5092588365,
+	"utc": 1696725517
+}, {
+	"play_number": 18,
+	"play_id": 401532591101934003,
+	"home_win_prob": 0.5764299035,
+	"utc": 1696725518
+}, {
+	"play_number": 19,
+	"play_id": 401532591101934004,
+	"home_win_prob": 0.5978661478,
+	"utc": 1696725519
+}, {
+	"play_number": 20,
+	"play_id": 401532591101934005,
+	"home_win_prob": 0.5541861355,
+	"utc": 1696725520
+}, {
+	"play_number": 21,
+	"play_id": 401532591101946601,
+	"home_win_prob": 0.5404657423,
+	"utc": 1696725521
+}, {
+	"play_number": 22,
+	"play_id": 401532591101946613,
+	"home_win_prob": 0.5404657423,
+	"utc": 1696725522
+}, {
+	"play_number": 23,
+	"play_id": 401532591101946602,
+	"home_win_prob": 0.641195178,
+	"utc": 1696725523
+}, {
+	"play_number": 24,
+	"play_id": 401532591101946603,
+	"home_win_prob": 0.6447221637,
+	"utc": 1696725524
+}, {
+	"play_number": 25,
+	"play_id": 401532591101946604,
+	"home_win_prob": 0.6493664384,
+	"utc": 1696725525
+}, {
+	"play_number": 26,
+	"play_id": 401532591101946605,
+	"home_win_prob": 0.619202733,
+	"utc": 1696725526
+}, {
+	"play_number": 27,
+	"play_id": 401532591101946606,
+	"home_win_prob": 0.6608489752,
+	"utc": 1696725527
+}, {
+	"play_number": 28,
+	"play_id": 401532591101946607,
+	"home_win_prob": 0.6630977392,
+	"utc": 1696725528
+}, {
+	"play_number": 29,
+	"play_id": 401532591101946608,
+	"home_win_prob": 0.6716971397,
+	"utc": 1696725529
+}, {
+	"play_number": 30,
+	"play_id": 401532591101946609,
+	"home_win_prob": 0.6676037312,
+	"utc": 1696725530
+}, {
+	"play_number": 31,
+	"play_id": 401532591101946610,
+	"home_win_prob": 0.6840657592,
+	"utc": 1696725531
+}, {
+	"play_number": 32,
+	"play_id": 401532591101999901,
+	"home_win_prob": 0.6808820367,
+	"utc": 1696725532
+}, {
+	"play_number": 33,
+	"play_id": 401532591102854401,
+	"home_win_prob": 0.6841205955,
+	"utc": 1696725652
+}, {
+	"play_number": 34,
+	"play_id": 401532591102854404,
+	"home_win_prob": 0.7404895425,
+	"utc": 1696725652
+}, {
+	"play_number": 35,
+	"play_id": 401532591102854405,
+	"home_win_prob": 0.7247153819,
+	"utc": 1696725652
+}, {
+	"play_number": 36,
+	"play_id": 401532591102854406,
+	"home_win_prob": 0.7375247478,
+	"utc": 1696725652
+}, {
+	"play_number": 37,
+	"play_id": 401532591102854407,
+	"home_win_prob": 0.72927773,
+	"utc": 1696725652
+}, {
+	"play_number": 38,
+	"play_id": 401532591102854408,
+	"home_win_prob": 0.7075190842,
+	"utc": 1696725652
+}, {
+	"play_number": 39,
+	"play_id": 401532591102854409,
+	"home_win_prob": 0.6833271384,
+	"utc": 1696725652
+}, {
+	"play_number": 40,
+	"play_id": 401532591102854410,
+	"home_win_prob": 0.6965028048,
+	"utc": 1696725652
+}, {
+	"play_number": 41,
+	"play_id": 401532591102888203,
+	"home_win_prob": 0.6520495415,
+	"utc": 1696726612
+}, {
+	"play_number": 42,
+	"play_id": 401532591102888207,
+	"home_win_prob": 0.6564458013,
+	"utc": 1696726612
+}, {
+	"play_number": 43,
+	"play_id": 401532591102888208,
+	"home_win_prob": 0.667021215,
+	"utc": 1696726612
+}, {
+	"play_number": 44,
+	"play_id": 401532591102888209,
+	"home_win_prob": 0.6799135804,
+	"utc": 1696726612
+}, {
+	"play_number": 45,
+	"play_id": 401532591102888210,
+	"home_win_prob": 0.6053147316,
+	"utc": 1696726612
+}, {
+	"play_number": 46,
+	"play_id": 401532591102888211,
+	"home_win_prob": 0.5690465569,
+	"utc": 1696726612
+}, {
+	"play_number": 47,
+	"play_id": 401532591102888212,
+	"home_win_prob": 0.6997105479,
+	"utc": 1696726612
+}, {
+	"play_number": 48,
+	"play_id": 401532591102888213,
+	"home_win_prob": 0.6890053749,
+	"utc": 1696726612
+}, {
+	"play_number": 49,
+	"play_id": 401532591102888214,
+	"home_win_prob": 0.6734156013,
+	"utc": 1696726612
+}, {
+	"play_number": 50,
+	"play_id": 401532591102935701,
+	"home_win_prob": 0.6900242865,
+	"utc": 1696727008
+}, {
+	"play_number": 51,
+	"play_id": 401532591102936303,
+	"home_win_prob": 0.7641500533,
+	"utc": 1696727252
+}, {
+	"play_number": 52,
+	"play_id": 401532591102936304,
+	"home_win_prob": 0.7287704945,
+	"utc": 1696727252
+}, {
+	"play_number": 53,
+	"play_id": 401532591102936305,
+	"home_win_prob": 0.7482717335,
+	"utc": 1696727252
+}, {
+	"play_number": 54,
+	"play_id": 401532591102936306,
+	"home_win_prob": 0.6712146401,
+	"utc": 1696727252
+}, {
+	"play_number": 55,
+	"play_id": 401532591102936307,
+	"home_win_prob": 0.6854536235,
+	"utc": 1696727252
+}, {
+	"play_number": 56,
+	"play_id": 401532591102936308,
+	"home_win_prob": 0.7337530851,
+	"utc": 1696727252
+}, {
+	"play_number": 57,
+	"play_id": 401532591102936309,
+	"home_win_prob": 0.735270232,
+	"utc": 1696727252
+}, {
+	"play_number": 58,
+	"play_id": 401532591102936310,
+	"home_win_prob": 0.7505702227,
+	"utc": 1696727252
+}, {
+	"play_number": 59,
+	"play_id": 401532591102974501,
+	"home_win_prob": 0.8322834522,
+	"utc": 1696727582
+}, {
+	"play_number": 60,
+	"play_id": 401532591102974503,
+	"home_win_prob": 0.800894022,
+	"utc": 1696727722
+}, {
+	"play_number": 61,
+	"play_id": 401532591102974504,
+	"home_win_prob": 0.804276824,
+	"utc": 1696727722
+}, {
+	"play_number": 62,
+	"play_id": 401532591102979002,
+	"home_win_prob": 0.8453592658,
+	"utc": 1696727860
+}, {
+	"play_number": 63,
+	"play_id": 401532591102979003,
+	"home_win_prob": 0.8396345377,
+	"utc": 1696727860
+}, {
+	"play_number": 64,
+	"play_id": 401532591102979004,
+	"home_win_prob": 0.8668957949,
+	"utc": 1696727860
+}, {
+	"play_number": 65,
+	"play_id": 401532591102979006,
+	"home_win_prob": 0.850064218,
+	"utc": 1696727860
+}, {
+	"play_number": 66,
+	"play_id": 401532591102979007,
+	"home_win_prob": 0.8674504161,
+	"utc": 1696727860
+}, {
+	"play_number": 67,
+	"play_id": 401532591102994602,
+	"home_win_prob": 0.8431158662,
+	"utc": 1696728312
+}, {
+	"play_number": 68,
+	"play_id": 401532591102994603,
+	"home_win_prob": 0.8101108074,
+	"utc": 1696728312
+}, {
+	"play_number": 69,
+	"play_id": 401532591102994604,
+	"home_win_prob": 0.8600814342,
+	"utc": 1696728312
+}, {
+	"play_number": 70,
+	"play_id": 401532591102996402,
+	"home_win_prob": 0.8813596368,
+	"utc": 1696728433
+}, {
+	"play_number": 71,
+	"play_id": 401532591102996801,
+	"home_win_prob": 0.8962379843,
+	"utc": 1696728513
+}, {
+	"play_number": 72,
+	"play_id": 401532591102999901,
+	"home_win_prob": 0.8940621093,
+	"utc": 1696728694
+}, {
+	"play_number": 73,
+	"play_id": 401532591103849907,
+	"home_win_prob": 0.941324532,
+	"utc": 1696729925
+}, {
+	"play_number": 74,
+	"play_id": 401532591103849911,
+	"home_win_prob": 0.9460870028,
+	"utc": 1696729925
+}, {
+	"play_number": 75,
+	"play_id": 401532591103849914,
+	"home_win_prob": 0.9410999417,
+	"utc": 1696729925
+}, {
+	"play_number": 76,
+	"play_id": 401532591103849919,
+	"home_win_prob": 0.9324803352,
+	"utc": 1696729925
+}, {
+	"play_number": 77,
+	"play_id": 401532591103849922,
+	"home_win_prob": 0.8994140029,
+	"utc": 1696729925
+}, {
+	"play_number": 78,
+	"play_id": 401532591103878301,
+	"home_win_prob": 0.9280509353,
+	"utc": 1696730258
+}, {
+	"play_number": 79,
+	"play_id": 401532591103878303,
+	"home_win_prob": 0.9260097519,
+	"utc": 1696730410
+}, {
+	"play_number": 80,
+	"play_id": 401532591103878304,
+	"home_win_prob": 0.9119966999,
+	"utc": 1696730410
+}, {
+	"play_number": 81,
+	"play_id": 401532591103878305,
+	"home_win_prob": 0.9252180085,
+	"utc": 1696730410
+}, {
+	"play_number": 82,
+	"play_id": 401532591103898102,
+	"home_win_prob": 0.9642427117,
+	"utc": 1696730575
+}, {
+	"play_number": 83,
+	"play_id": 401532591103898103,
+	"home_win_prob": 0.9506972618,
+	"utc": 1696730575
+}, {
+	"play_number": 84,
+	"play_id": 401532591103898104,
+	"home_win_prob": 0.9399216734,
+	"utc": 1696730575
+}, {
+	"play_number": 85,
+	"play_id": 401532591103898105,
+	"home_win_prob": 0.9266006202,
+	"utc": 1696730575
+}, {
+	"play_number": 86,
+	"play_id": 401532591103898106,
+	"home_win_prob": 0.9380364604,
+	"utc": 1696730575
+}, {
+	"play_number": 87,
+	"play_id": 401532591103898107,
+	"home_win_prob": 0.9206866324,
+	"utc": 1696730575
+}, {
+	"play_number": 88,
+	"play_id": 401532591103898108,
+	"home_win_prob": 0.9175885767,
+	"utc": 1696730927
+}, {
+	"play_number": 89,
+	"play_id": 401532591103898109,
+	"home_win_prob": 0.9246939048,
+	"utc": 1696730927
+}, {
+	"play_number": 90,
+	"play_id": 401532591103898110,
+	"home_win_prob": 0.9098712578,
+	"utc": 1696730927
+}, {
+	"play_number": 91,
+	"play_id": 401532591103898111,
+	"home_win_prob": 0.9308147505,
+	"utc": 1696730927
+}, {
+	"play_number": 92,
+	"play_id": 401532591103898112,
+	"home_win_prob": 0.9331670031,
+	"utc": 1696730927
+}, {
+	"play_number": 93,
+	"play_id": 401532591103946301,
+	"home_win_prob": 0.9272140265,
+	"utc": 1696731120
+}, {
+	"play_number": 94,
+	"play_id": 401532591103946304,
+	"home_win_prob": 0.9471445084,
+	"utc": 1696731120
+}, {
+	"play_number": 95,
+	"play_id": 401532591103946305,
+	"home_win_prob": 0.9416771531,
+	"utc": 1696731120
+}, {
+	"play_number": 96,
+	"play_id": 401532591103946307,
+	"home_win_prob": 0.938382864,
+	"utc": 1696731120
+}, {
+	"play_number": 97,
+	"play_id": 401532591103946308,
+	"home_win_prob": 0.9542903304,
+	"utc": 1696731120
+}, {
+	"play_number": 98,
+	"play_id": 401532591103946309,
+	"home_win_prob": 0.9520446062,
+	"utc": 1696731120
+}, {
+	"play_number": 99,
+	"play_id": 401532591103946310,
+	"home_win_prob": 0.9574263692,
+	"utc": 1696731120
+}, {
+	"play_number": 100,
+	"play_id": 401532591103946311,
+	"home_win_prob": 0.9538792968,
+	"utc": 1696731608
+}, {
+	"play_number": 101,
+	"play_id": 401532591103946312,
+	"home_win_prob": 0.9385489821,
+	"utc": 1696731608
+}, {
+	"play_number": 102,
+	"play_id": 401532591103984601,
+	"home_win_prob": 0.9361945987,
+	"utc": 1696731721
+}, {
+	"play_number": 103,
+	"play_id": 401532591103984603,
+	"home_win_prob": 0.9491514005,
+	"utc": 1696731721
+}, {
+	"play_number": 104,
+	"play_id": 401532591103984604,
+	"home_win_prob": 0.9539630637,
+	"utc": 1696731721
+}, {
+	"play_number": 105,
+	"play_id": 401532591103984605,
+	"home_win_prob": 0.9461583458,
+	"utc": 1696731721
+}, {
+	"play_number": 106,
+	"play_id": 401532591103999901,
+	"home_win_prob": 0.950091403,
+	"utc": 1696731996
+}, {
+	"play_number": 107,
+	"play_id": 401532591104849902,
+	"home_win_prob": 0.9485983029,
+	"utc": 1696732187
+}, {
+	"play_number": 108,
+	"play_id": 401532591104849904,
+	"home_win_prob": 0.956623774,
+	"utc": 1696732187
+}, {
+	"play_number": 109,
+	"play_id": 401532591104849907,
+	"home_win_prob": 0.9657384828,
+	"utc": 1696732187
+}, {
+	"play_number": 110,
+	"play_id": 401532591104859901,
+	"home_win_prob": 0.9607956335,
+	"utc": 1696732316
+}, {
+	"play_number": 111,
+	"play_id": 401532591104859903,
+	"home_win_prob": 0.9606171846,
+	"utc": 1696732316
+}, {
+	"play_number": 112,
+	"play_id": 401532591104859904,
+	"home_win_prob": 0.958078444,
+	"utc": 1696732316
+}, {
+	"play_number": 113,
+	"play_id": 401532591104859905,
+	"home_win_prob": 0.9553830624,
+	"utc": 1696732544
+}, {
+	"play_number": 114,
+	"play_id": 401532591104877701,
+	"home_win_prob": 0.939835906,
+	"utc": 1696732636
+}, {
+	"play_number": 115,
+	"play_id": 401532591104877703,
+	"home_win_prob": 0.9629523754,
+	"utc": 1696732636
+}, {
+	"play_number": 116,
+	"play_id": 401532591104877704,
+	"home_win_prob": 0.9639733508,
+	"utc": 1696732636
+}, {
+	"play_number": 117,
+	"play_id": 401532591104877705,
+	"home_win_prob": 0.9477231055,
+	"utc": 1696732636
+}, {
+	"play_number": 118,
+	"play_id": 401532591104877706,
+	"home_win_prob": 0.9302093759,
+	"utc": 1696732636
+}, {
+	"play_number": 119,
+	"play_id": 401532591104877707,
+	"home_win_prob": 0.9345992208,
+	"utc": 1696732636
+}, {
+	"play_number": 120,
+	"play_id": 401532591104877708,
+	"home_win_prob": 0.9424198717,
+	"utc": 1696732636
+}, {
+	"play_number": 121,
+	"play_id": 401532591104877709,
+	"home_win_prob": 0.9318343252,
+	"utc": 1696732636
+}, {
+	"play_number": 122,
+	"play_id": 401532591104877710,
+	"home_win_prob": 0.9508996494,
+	"utc": 1696732636
+}, {
+	"play_number": 123,
+	"play_id": 401532591104877711,
+	"home_win_prob": 0.9444614053,
+	"utc": 1696732636
+}, {
+	"play_number": 124,
+	"play_id": 401532591104916801,
+	"home_win_prob": 0.9468491077,
+	"utc": 1696732637
+}, {
+	"play_number": 125,
+	"play_id": 401532591104916803,
+	"home_win_prob": 0.9118239954,
+	"utc": 1696732638
+}, {
+	"play_number": 126,
+	"play_id": 401532591104916804,
+	"home_win_prob": 0.9266656116,
+	"utc": 1696732639
+}, {
+	"play_number": 127,
+	"play_id": 401532591104916805,
+	"home_win_prob": 0.921099104,
+	"utc": 1696732640
+}, {
+	"play_number": 128,
+	"play_id": 401532591104916806,
+	"home_win_prob": 0.9023920894,
+	"utc": 1696732641
+}, {
+	"play_number": 129,
+	"play_id": 401532591104916807,
+	"home_win_prob": 0.9010121673,
+	"utc": 1696732642
+}, {
+	"play_number": 130,
+	"play_id": 401532591104916808,
+	"home_win_prob": 0.9227348715,
+	"utc": 1696732643
+}, {
+	"play_number": 131,
+	"play_id": 401532591104916809,
+	"home_win_prob": 0.9000055119,
+	"utc": 1696732644
+}, {
+	"play_number": 132,
+	"play_id": 401532591104916810,
+	"home_win_prob": 0.9250766188,
+	"utc": 1696732645
+}, {
+	"play_number": 133,
+	"play_id": 401532591104948201,
+	"home_win_prob": 0.8223828077,
+	"utc": 1696733884
+}, {
+	"play_number": 134,
+	"play_id": 401532591104948205,
+	"home_win_prob": 0.7935776711,
+	"utc": 1696733884
+}, {
+	"play_number": 135,
+	"play_id": 401532591104948206,
+	"home_win_prob": 0.7825675011,
+	"utc": 1696733884
+}, {
+	"play_number": 136,
+	"play_id": 401532591104964902,
+	"home_win_prob": 0.8947511911,
+	"utc": 1696734259
+}, {
+	"play_number": 137,
+	"play_id": 401532591104964903,
+	"home_win_prob": 0.8831439614,
+	"utc": 1696734331
+}, {
+	"play_number": 138,
+	"play_id": 401532591104974402,
+	"home_win_prob": 0.9409303069,
+	"utc": 1696734402
+}, {
+	"play_number": 139,
+	"play_id": 401532591104974403,
+	"home_win_prob": 0.9291447997,
+	"utc": 1696734402
+}, {
+	"play_number": 140,
+	"play_id": 401532591104974404,
+	"home_win_prob": 0.9137980938,
+	"utc": 1696734402
+}, {
+	"play_number": 141,
+	"play_id": 401532591104985101,
+	"home_win_prob": 0.8926740289,
+	"utc": 1696734876
+}, {
+	"play_number": 142,
+	"play_id": 401532591104985103,
+	"home_win_prob": 0.8512567133,
+	"utc": 1696734876
+}, {
+	"play_number": 143,
+	"play_id": 401532591104985104,
+	"home_win_prob": 0.83883892,
+	"utc": 1696734876
+}, {
+	"play_number": 144,
+	"play_id": 401532591104985105,
+	"home_win_prob": 0.8653721511,
+	"utc": 1696734876
+}, {
+	"play_number": 145,
+	"play_id": 401532591104985106,
+	"home_win_prob": 0.8811814636,
+	"utc": 1696734876
+}, {
+	"play_number": 146,
+	"play_id": 401532591104985107,
+	"home_win_prob": 0.8119789362,
+	"utc": 1696734876
+}, {
+	"play_number": 147,
+	"play_id": 401532591104995301,
+	"home_win_prob": 0.8301649392,
+	"utc": 1696735168
+}, {
+	"play_number": 148,
+	"play_id": 401532591104995303,
+	"home_win_prob": 0.9479026794,
+	"utc": 1696735168
+}, {
+	"play_number": 149,
+	"play_id": 401532591104999901,
+	"home_win_prob": 0.9567345977,
+	"utc": 1696735232
+}, {
+	"play_number": 150,
+	"play_id": 0,
+	"home_win_prob": 1.0,
+	"utc": 1696735233
+}]
