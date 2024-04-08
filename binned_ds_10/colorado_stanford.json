@@ -1,0 +1,648 @@
+[
+    {
+        "start_utc": 1697250044,
+        "end_utc": 1697250442,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        }
+    },
+    {
+        "start_utc": 1697250471,
+        "end_utc": 1697251076,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        }
+    },
+    {
+        "start_utc": 1697251126,
+        "end_utc": 1697251585,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        }
+    },
+    {
+        "start_utc": 1697251631,
+        "end_utc": 1697252267,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        }
+    },
+    {
+        "start_utc": 1697252301,
+        "end_utc": 1697253293,
+        "home_vals": {
+            "tone_pos": 3.404468085106383,
+            "tone_neg": 2.0012765957446805,
+            "emotion": 2.6753191489361696,
+            "emo_pos": 0.695531914893617,
+            "emo_neg": 1.8161702127659574,
+            "emo_anx": 0.0,
+            "emo_anger": 0.7717021276595744,
+            "emo_sad": 0.19340425531914893
+        },
+        "away_vals": {
+            "tone_pos": 8.864285714285712,
+            "tone_neg": 2.2333333333333334,
+            "emotion": 8.617142857142857,
+            "emo_pos": 7.117142857142857,
+            "emo_neg": 1.500952380952381,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 3.69136546184739,
+            "tone_neg": 2.462690763052209,
+            "emotion": 2.5564658634538158,
+            "emo_pos": 0.6702008032128512,
+            "emo_neg": 1.3480321285140562,
+            "emo_anx": 0.0229718875502008,
+            "emo_anger": 0.19012048192771083,
+            "emo_sad": 0.19598393574297193
+        }
+    },
+    {
+        "start_utc": 1697253311,
+        "end_utc": 1697253967,
+        "home_vals": {
+            "tone_pos": 4.408109756097559,
+            "tone_neg": 2.977743902439025,
+            "emotion": 2.790609756097561,
+            "emo_pos": 1.0113414634146343,
+            "emo_neg": 0.8951219512195122,
+            "emo_anx": 0.0,
+            "emo_anger": 0.17682926829268292,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 4.626382978723405,
+            "tone_neg": 7.0263829787234044,
+            "emotion": 1.9302127659574468,
+            "emo_pos": 0.9040425531914893,
+            "emo_neg": 1.0261702127659575,
+            "emo_anx": 0.0,
+            "emo_anger": 0.38680851063829785,
+            "emo_sad": 0.38680851063829785
+        },
+        "neut_vals": {
+            "tone_pos": 3.2497201946472036,
+            "tone_neg": 3.031119221411193,
+            "emotion": 2.3343795620437957,
+            "emo_pos": 0.7923236009732361,
+            "emo_neg": 1.3383333333333336,
+            "emo_anx": 0.012798053527980534,
+            "emo_anger": 0.5100364963503651,
+            "emo_sad": 0.1437712895377129
+        }
+    },
+    {
+        "start_utc": 1697254026,
+        "end_utc": 1697254825,
+        "home_vals": {
+            "tone_pos": 5.729419087136931,
+            "tone_neg": 3.3984232365145224,
+            "emotion": 3.070912863070539,
+            "emo_pos": 1.6156431535269706,
+            "emo_neg": 1.3102074688796683,
+            "emo_anx": 0.45394190871369294,
+            "emo_anger": 0.08829875518672198,
+            "emo_sad": 0.235103734439834
+        },
+        "away_vals": {
+            "tone_pos": 2.8466666666666662,
+            "tone_neg": 2.8055,
+            "emotion": 1.8306666666666667,
+            "emo_pos": 0.2648333333333333,
+            "emo_neg": 1.5658333333333334,
+            "emo_anx": 0.0,
+            "emo_anger": 0.05383333333333333,
+            "emo_sad": 1.111
+        },
+        "neut_vals": {
+            "tone_pos": 4.653004566210049,
+            "tone_neg": 3.0589041095890432,
+            "emotion": 2.7389680365296827,
+            "emo_pos": 1.0615890410958904,
+            "emo_neg": 1.4767397260273973,
+            "emo_anx": 0.01782648401826484,
+            "emo_anger": 0.307634703196347,
+            "emo_sad": 0.3480730593607306
+        }
+    },
+    {
+        "start_utc": 1697254849,
+        "end_utc": 1697255324,
+        "home_vals": {
+            "tone_pos": 3.2086021505376343,
+            "tone_neg": 5.673655913978495,
+            "emotion": 2.81010752688172,
+            "emo_pos": 0.34451612903225803,
+            "emo_neg": 2.4655913978494617,
+            "emo_anx": 0.0,
+            "emo_anger": 0.13268817204301075,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 1.5676190476190477,
+            "tone_neg": 2.5771428571428574,
+            "emotion": 0.9523809523809523,
+            "emo_pos": 0.9523809523809523,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 4.80104125736739,
+            "tone_neg": 2.7640078585461683,
+            "emotion": 2.271591355599213,
+            "emo_pos": 1.381748526522593,
+            "emo_neg": 0.5638113948919449,
+            "emo_anx": 0.05689587426326129,
+            "emo_anger": 0.03882121807465618,
+            "emo_sad": 0.3131237721021611
+        }
+    },
+    {
+        "start_utc": 1697255324,
+        "end_utc": 1697255477,
+        "home_vals": {
+            "tone_pos": 8.05860465116279,
+            "tone_neg": 3.6097674418604653,
+            "emotion": 4.053255813953489,
+            "emo_pos": 1.8111627906976744,
+            "emo_neg": 2.0632558139534884,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 7.234615384615385,
+            "tone_neg": 0.0,
+            "emotion": 1.99,
+            "emo_pos": 1.99,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 3.025357142857143,
+            "tone_neg": 3.131479591836734,
+            "emotion": 1.7513775510204082,
+            "emo_pos": 0.3430102040816327,
+            "emo_neg": 1.295,
+            "emo_anx": 0.0,
+            "emo_anger": 0.2561734693877551,
+            "emo_sad": 0.25510204081632654
+        }
+    },
+    {
+        "start_utc": 1697255478,
+        "end_utc": 1697255487,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 100.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 1.9849999999999999,
+            "tone_neg": 4.90125,
+            "emotion": 2.7199999999999998,
+            "emo_pos": 1.9849999999999999,
+            "emo_neg": 0.735,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.735
+        }
+    },
+    {
+        "start_utc": 1697255488,
+        "end_utc": 1697255497,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0.98,
+            "tone_neg": 0.98,
+            "emotion": 1.96,
+            "emo_pos": 0.98,
+            "emo_neg": 0.98,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.98
+        }
+    },
+    {
+        "start_utc": 1697255498,
+        "end_utc": 1697255507,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 7.2925,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255508,
+        "end_utc": 1697255517,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 7.29125,
+            "tone_neg": 2.78375,
+            "emotion": 7.03125,
+            "emo_pos": 6.25,
+            "emo_neg": 0.78125,
+            "emo_anx": 0.78125,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255518,
+        "end_utc": 1697255527,
+        "home_vals": {
+            "tone_pos": 8.466666666666667,
+            "tone_neg": 7.406666666666666,
+            "emotion": 11.11,
+            "emo_pos": 3.703333333333333,
+            "emo_neg": 7.406666666666666,
+            "emo_anx": 0.0,
+            "emo_anger": 7.406666666666666,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 3.937142857142857,
+            "tone_neg": 2.142857142857143,
+            "emotion": 2.0514285714285716,
+            "emo_pos": 1.0985714285714285,
+            "emo_neg": 0.9528571428571428,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255528,
+        "end_utc": 1697255537,
+        "home_vals": {
+            "tone_pos": 20.0,
+            "tone_neg": 0.0,
+            "emotion": 20.0,
+            "emo_pos": 20.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 3.57,
+            "emotion": 7.145,
+            "emo_pos": 0.0,
+            "emo_neg": 3.57,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 4.545,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255538,
+        "end_utc": 1697255547,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 2.2725,
+            "tone_neg": 7.159999999999998,
+            "emotion": 8.1175,
+            "emo_pos": 2.2725,
+            "emo_neg": 2.2725,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255548,
+        "end_utc": 1697255557,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        }
+    },
+    {
+        "start_utc": 1697255558,
+        "end_utc": 1697255567,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 4.165,
+            "emotion": 2.085,
+            "emo_pos": 0.0,
+            "emo_neg": 2.085,
+            "emo_anx": 0.0,
+            "emo_anger": 2.085,
+            "emo_sad": 0.0
+        }
+    },
+    {
+        "start_utc": 1697255568,
+        "end_utc": 1697255577,
+        "home_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "away_vals": {
+            "tone_pos": 0,
+            "tone_neg": 0,
+            "emotion": 0,
+            "emo_pos": 0,
+            "emo_neg": 0,
+            "emo_anx": 0,
+            "emo_anger": 0,
+            "emo_sad": 0
+        },
+        "neut_vals": {
+            "tone_pos": 1.6675,
+            "tone_neg": 3.2300000000000004,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0
+        }
+    }
+]
