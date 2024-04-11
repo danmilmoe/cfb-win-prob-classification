@@ -1,0 +1,268 @@
+[
+    {
+        "start_utc": 1697942802,
+        "end_utc": 1697943899,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "wp_delta": 0.04557940370000002
+    },
+    {
+        "start_utc": 1697944118,
+        "end_utc": 1697945281,
+        "home_vals": {
+            "tone_pos": 0.5004269734288438,
+            "tone_neg": 0.35891030753565184,
+            "emotion": 0.6520528663401245,
+            "emo_pos": 1.0,
+            "emo_neg": 0.1838440111420613,
+            "emo_anx": 0.267606937843343,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.2446043165467626
+        },
+        "away_vals": {
+            "tone_pos": 0.3875224955008998,
+            "tone_neg": 0.320187032773372,
+            "emotion": 0.4352638589078217,
+            "emo_pos": 0.3328008519701811,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.04316546762589928
+        },
+        "neut_vals": {
+            "tone_pos": 0.3929105088073295,
+            "tone_neg": 0.5708039721853998,
+            "emotion": 0.41523488223529564,
+            "emo_pos": 0.15277374382805695,
+            "emo_neg": 0.6331982780450748,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.07913669064748201
+        },
+        "wp_delta": 0.0682398676
+    },
+    {
+        "start_utc": 1697945281,
+        "end_utc": 1697946810,
+        "home_vals": {
+            "tone_pos": 0.5859258917447279,
+            "tone_neg": 1.0,
+            "emotion": 1.0,
+            "emo_pos": 0.5638977635782749,
+            "emo_neg": 1.0,
+            "emo_anx": 1.0,
+            "emo_anger": 1.0,
+            "emo_sad": 1.0,
+            "comment_count": 0.5611510791366906
+        },
+        "away_vals": {
+            "tone_pos": 1.0,
+            "tone_neg": 0.3509955657883518,
+            "emotion": 0.7233500206677996,
+            "emo_pos": 0.9068157614483495,
+            "emo_neg": 0.5013927576601671,
+            "emo_anx": 0.0,
+            "emo_anger": 0.39500145730107833,
+            "emo_sad": 0.6653543307086615,
+            "comment_count": 0.17266187050359713
+        },
+        "neut_vals": {
+            "tone_pos": 0.5852066996672608,
+            "tone_neg": 0.8363912093655852,
+            "emotion": 0.7848331723635008,
+            "emo_pos": 0.438619072792884,
+            "emo_neg": 0.8285605498887798,
+            "emo_anx": 0.49696905644424655,
+            "emo_anger": 0.4520610850288,
+            "emo_sad": 0.8077461540329042,
+            "comment_count": 1.0
+        },
+        "wp_delta": -0.11445116990000004
+    },
+    {
+        "start_utc": 1697946875,
+        "end_utc": 1697946937,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "wp_delta": -0.15739560130000002
+    },
+    {
+        "start_utc": 1697946938,
+        "end_utc": 1697946957,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "wp_delta": -0.015912353999999962
+    },
+    {
+        "start_utc": 1697946958,
+        "end_utc": 1697946977,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "wp_delta": -0.009705990599999992
+    },
+    {
+        "start_utc": 1697946978,
+        "end_utc": 1697946997,
+        "home_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "away_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "neut_vals": {
+            "tone_pos": 0.0,
+            "tone_neg": 0.0,
+            "emotion": 0.0,
+            "emo_pos": 0.0,
+            "emo_neg": 0.0,
+            "emo_anx": 0.0,
+            "emo_anger": 0.0,
+            "emo_sad": 0.0,
+            "comment_count": 0.0
+        },
+        "wp_delta": 0.5939482749
+    }
+]
