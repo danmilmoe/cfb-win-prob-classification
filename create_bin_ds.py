@@ -6,7 +6,6 @@ import pandas as pd
 # How big are the bins?
 INTERVAL_STEP_SIZE = 16
 
-
 # Replace 'your_directory_path' with the path to your directory containing the JSON files
 csv_dir = 'pivot_repo/threads_all_columns'
 json_dir = 'pivot_repo/win_probs'
@@ -128,12 +127,12 @@ for filename in os.listdir(json_dir):
     else:
         print(f'Non-JSON file found: {filename}')
     
-    global_maxima = {col: 0 for col in sentiment_columns + ['comment_count']}
+    global_maxima = {col: 0 for col in all_columns + ['comment_count']}
 
     # Aggregate the maximum values for each sentiment attribute
     for datapoint in game_datapoints:
         for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
-            for col in sentiment_columns + ['comment_count']:
+            for col in all_columns + ['comment_count']:
                 current_val = datapoint[vals_type].get(col, 0)
                 global_maxima[col] = max(global_maxima[col], current_val)
 
@@ -141,7 +140,7 @@ for filename in os.listdir(json_dir):
     # Normalize the values across all datapoints
     for datapoint in game_datapoints:
         for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
-            for col in sentiment_columns + ['comment_count']:
+            for col in all_columns + ['comment_count']:
                 if global_maxima[col] > 0:  # Ensure no division by zero
                     datapoint[vals_type][col] = datapoint[vals_type].get(col, 0) / global_maxima[col]
 
