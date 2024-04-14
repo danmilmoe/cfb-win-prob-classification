@@ -4,7 +4,8 @@ import ast
 import pandas as pd
 
 # How big are the bins?
-INTERVAL_STEP_SIZE = 16
+INTERVAL_STEP_SIZE = 15
+
 
 # Replace 'your_directory_path' with the path to your directory containing the JSON files
 csv_dir = 'pivot_repo/threads_all_columns'
@@ -29,14 +30,13 @@ all_columns = [
     'health', 'illness', 'wellness', 'mental', 'substances', 'sexual', 'food', 'death', 'need', 'want', 'acquire',
     'lack', 'fulfill', 'fatigue', 'reward', 'risk', 'curiosity', 'allure', 'Perception', 'attention', 'motion',
     'space', 'visual', 'auditory', 'feeling', 'time', 'focuspast', 'focuspresent', 'focusfuture', 'Conversation',
-    'netspeak', 'assent', 'nonflu', 'filler', 'AllPunc', 'Period', 'Comma', 'QMark', 'Exclam', 'Apostro', 'OtherP',
-    'Emoji'
+    'netspeak', 'assent', 'nonflu', 'filler', 'AllPunc', 'Period', 'Comma', 'QMark', 'Exclam', 'Apostro', 'OtherP'
 ]
 
 # Function to compute the average sentiment values for a list of DataFrames
 def average_sentiments(dataframes):
     # Initialize the dictionary with sentiment columns set to 0
-    initial_values = {col: 0 for col in all_columns}
+    initial_values = {col: 0 for col in sentiment_columns}
     # Add the 'comment_count' key with a value of 0
     initial_values['comment_count'] = 0
 
@@ -47,7 +47,7 @@ def average_sentiments(dataframes):
         return initial_values
     
     # Compute the average for sentiment columns
-    average_values = df_concat[all_columns].mean().to_dict()
+    average_values = df_concat[sentiment_columns].mean().to_dict()
     # Add the count of comments to the average_values dictionary
     average_values['comment_count'] = len(df_concat)
     return average_values
@@ -62,6 +62,9 @@ for filename in os.listdir(json_dir):
             data = json.load(json_file)
 
         hometeam, awayteam = filename[:-5].split('_')
+
+        # Get the starting win prob
+        starting_win_prob = data[0]["home_win_prob"]
         
         play_utcs = [item["utc"] for item in data]
         play_wp = [item["home_win_prob"] for item in data]
@@ -78,7 +81,7 @@ for filename in os.listdir(json_dir):
         csv_filename = filename.replace('.json', '.csv')
         file_path = os.path.join(csv_dir, csv_filename)
 
-        columns_to_keep = ['created_utc', 'labels'] + all_columns
+        columns_to_keep = ['created_utc', 'labels'] + sentiment_columns
         
         # Check if corresponding CSV file exists
         if os.path.exists(file_path):
@@ -93,59 +96,71 @@ for filename in os.listdir(json_dir):
                 neut_comments = []
                 
                 # Process CSV in chunks
-                for chunk in pd.read_csv(file_path, chunksize=10000, usecols=columns_to_keep):
-                    chunk['created_utc'] = pd.to_numeric(chunk['created_utc'], errors='coerce')  # Convert to numeric, make errors NaN
-                    chunk['labels'] = chunk['labels'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)  # Safely evaluate strings
+                try:
+                    print(chunk.columns.tolist())
+                    for chunk in pd.read_csv(file_path, chunksize=10000, usecols=columns_to_keep):
+                        chunk['created_utc'] = pd.to_numeric(chunk['created_utc'], errors='coerce')  # Convert to numeric, make errors NaN
+                        chunk['labels'] = chunk['labels'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)  # Safely evaluate strings
 
-                    filtered_chunk = chunk[(chunk['created_utc'] >= start_utc) & (chunk['created_utc'] <= end_utc)]
-                    
-                    home_chunk = filtered_chunk[filtered_chunk['labels'].apply(lambda x: hometeam in x)]
-                    away_chunk = filtered_chunk[filtered_chunk['labels'].apply(lambda x: awayteam in x)]
-                    # Neutral comments should not contain either home or away team labels
-                    neut_chunk = filtered_chunk[~filtered_chunk['labels'].apply(lambda x: hometeam in x or awayteam in x)]
-                    
-                    if not neut_chunk.empty:
-                        neut_comments.append(neut_chunk)
-                    if not home_chunk.empty:
-                        home_comments.append(home_chunk)
-                    if not away_chunk.empty:
-                        away_comments.append(away_chunk)
+                        filtered_chunk = chunk[(chunk['created_utc'] >= start_utc) & (chunk['created_utc'] <= end_utc)]
+
+                        filtered_chunk = filtered_chunk[(filtered_chunk[sentiment_columns] != 0).sum(axis=1) >= 3]
+
+                        home_chunk = filtered_chunk[filtered_chunk['labels'].apply(lambda x: hometeam in x)]
+                        away_chunk = filtered_chunk[filtered_chunk['labels'].apply(lambda x: awayteam in x)]
+                        # Neutral comments should not contain either home or away team labels
+                        neut_chunk = filtered_chunk[~filtered_chunk['labels'].apply(lambda x: hometeam in x or awayteam in x)]
                         
-                # Create a datapoint for the current interval and append it to the game_datapoints list
-                datapoint = {
-                    "start_utc": start_utc,
-                    "end_utc": end_utc,
-                    "home_vals": average_sentiments(home_comments),
-                    "away_vals": average_sentiments(away_comments),
-                    "neut_vals": average_sentiments(neut_comments),
-                    "wp_delta": wp_delta
-                }
-                game_datapoints.append(datapoint)
+                        if not neut_chunk.empty:
+                            neut_comments.append(neut_chunk)
+                        if not home_chunk.empty:
+                            home_comments.append(home_chunk)
+                        if not away_chunk.empty:
+                            away_comments.append(away_chunk)
+                            
+                    # Create a datapoint for the current interval and append it to the game_datapoints list
+                    datapoint = {
+                        "start_utc": start_utc,
+                        "end_utc": end_utc,
+                        "home_vals": average_sentiments(home_comments),
+                        "away_vals": average_sentiments(away_comments),
+                        "neut_vals": average_sentiments(neut_comments),
+                        "wp_delta": wp_delta
+                    }
+                    game_datapoints.append(datapoint)
+                except pd.errors.EmptyDataError:
+                    print(f'Skipping empty or invalid file: {file_path}')
+                    continue
 
         else:
             print(f'Corresponding CSV file not found for {filename}')
     else:
         print(f'Non-JSON file found: {filename}')
     
-    global_maxima = {col: 0 for col in all_columns + ['comment_count']}
+    global_maxima = {col: 0 for col in sentiment_columns + ['comment_count']}
 
     # Aggregate the maximum values for each sentiment attribute
     for datapoint in game_datapoints:
         for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
-            for col in all_columns + ['comment_count']:
+            for col in sentiment_columns + ['comment_count']:
                 current_val = datapoint[vals_type].get(col, 0)
                 global_maxima[col] = max(global_maxima[col], current_val)
 
-    # (Normalization Code Here)
     # Normalize the values across all datapoints
     for datapoint in game_datapoints:
         for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
-            for col in all_columns + ['comment_count']:
+            for col in sentiment_columns + ['comment_count']:
                 if global_maxima[col] > 0:  # Ensure no division by zero
                     datapoint[vals_type][col] = datapoint[vals_type].get(col, 0) / global_maxima[col]
 
     # Save the game's datapoints to a JSON file
     json_output_path = os.path.join(output_path, f'{hometeam}_{awayteam}.json')
+
+    output_dict = {
+        "starting_win_prob": starting_win_prob,
+        "game_datapoints": game_datapoints
+    }
+
     with open(json_output_path, 'w') as outfile:
-        json.dump(game_datapoints, outfile, indent=4)
+        json.dump(output_dict, outfile, indent=4)
     
