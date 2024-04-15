@@ -16,8 +16,8 @@ DROPOUT_RATE = 0.2
 features = []
 targets = []
 
-for filename in os.listdir('pivot_repo/binned_ds_15_buffered_30'):
-    with open(os.path.join('pivot_repo/binned_ds_15_buffered_30', filename), 'r') as json_file:
+for filename in os.listdir('pivot_repo/binned_ds_spiked_1'):
+    with open(os.path.join('pivot_repo/binned_ds_spiked_1', filename), 'r') as json_file:
         data = json.load(json_file)
 
     for interval in data["game_datapoints"]:
@@ -53,7 +53,7 @@ X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, t
 # Further splitting the training set into actual training and validation sets
 X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=690)  # Adjust the test_size as needed
 
-LAYER_SIZES = [X_train.shape[1], 224, 150, 90, 3]  # Include input size and output size
+LAYER_SIZES = [X_train.shape[1], 320, 250, 90, 40, 3]  # Include input size and output size
 
 # Creating PyTorch datasets for training, validation, and testing
 train_dataset = TensorDataset(X_train, y_train)
@@ -102,7 +102,7 @@ model = Net()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters())
 
-patience = 5
+patience = 50
 best_loss = float('inf')
 patience_counter = 0
 num_epochs = 60

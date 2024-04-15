@@ -16,7 +16,7 @@ N_EVENTS = 15
 csv_dir = 'pivot_repo/threads'
 wp_dir = 'pivot_repo/win_probs'
 drive_dir = 'pivot_repo/drive_win_probs'
-indic = 0
+indic = 1
 output_dir = f'pivot_repo/binned_ds_spiked_{indic}'
 
 # Ensure the output directory exists
@@ -265,6 +265,8 @@ def separate_by_affiliation(
             # Filter data within the desired time range
             filtered_chunk = chunk[(chunk['created_utc'] >= start_utc) & (chunk['created_utc'] <= end_utc)]
             print(f"Filtered chunk shape: {filtered_chunk.shape}")
+            
+            filtered_chunk = filtered_chunk[(filtered_chunk[sentiment_columns] != 0).sum(axis=1) >= 3]
 
             # Separate comments by affiliation
             home_chunk = filtered_chunk[filtered_chunk['labels'].apply(lambda x: hometeam in x)]
@@ -354,6 +356,22 @@ def make_spiked_dataset(binning_policy):
 
         # Fill the output object
         first, last = get_first_last_wp(filename)
+
+        global_maxima = {col: 0 for col in chosen_columns + ['comment_count']}
+
+        # Aggregate the maximum values for each sentiment attribute
+        for datapoint in game_datapoints:
+            for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
+                for col in chosen_columns + ['comment_count']:
+                    current_val = datapoint[vals_type].get(col, 0)
+                    global_maxima[col] = max(global_maxima[col], current_val)
+
+        # Normalize the values across all datapoints
+        for datapoint in game_datapoints:
+            for vals_type in ['home_vals', 'away_vals', 'neut_vals']:
+                for col in chosen_columns + ['comment_count']:
+                    if global_maxima[col] > 0:  # Ensure no division by zero
+                        datapoint[vals_type][col] = round(datapoint[vals_type].get(col, 0) / global_maxima[col], 5)
 
         output_dict = {
             "starting_win_prob": first,
