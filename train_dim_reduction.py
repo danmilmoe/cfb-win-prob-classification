@@ -8,14 +8,15 @@ import os
 import json
 import numpy as np
 import hypertools as hyp
+from sklearn.decomposition import PCA
 
 import warnings 
 
 warnings.filterwarnings("ignore")
 
-THRESHOLD = 0.045
+THRESHOLD = 0.047
 RANDOM_STATE = 69
-BATCH_SIZE = 32
+BATCH_SIZE = 64
 DROPOUT_RATE = 0.2
 
 features = []
@@ -52,11 +53,15 @@ print(f.shape)
 train_accuracies = []
 test_accuracies = []
 
+pca = PCA(.8)
+
 for i in range(50):
-    RANDOM_SEED = i*69
-    reduced = hyp.reduce(f, ndims = 16,  reduce={'model' : 'TruncatedSVD', 'params' : {'algorithm': 'randomized', 'random_state': RANDOM_SEED, 'n_iter':8, 'n_components':16}})
+    RANDOM_SEED = i*42
+    # reduced = hyp.reduce(f, ndims = 16,  reduce={'model' : 'TruncatedSVD', 'params' : {'algorithm': 'randomized', 'random_state': RANDOM_SEED, 'n_iter':8, 'n_components':16}})
     #reduced = hyp.reduce(f, ndims = 16)
     #print('Shape of first reduced array: ', reduced.shape)
+    # pca.fit(f)
+    # reduced = pca.transform(f)
 
     #print(len(features))
     #print(len(targets))
@@ -74,7 +79,12 @@ for i in range(50):
     # Further splitting the training set into actual training and validation sets
     X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=RANDOM_SEED)  # Adjust the test_size as needed
 
-    LAYER_SIZES = [X_train.shape[1], 224, 150, 90, 3]  # Include input size and output size
+    pca.fit(X_train)
+    X_train = torch.tensor(pca.transform(X_train), dtype=torch.float32)
+    X_val = torch.tensor(pca.transform(X_val), dtype=torch.float32)
+    X_test = torch.tensor(pca.transform(X_test), dtype=torch.float32)
+
+    LAYER_SIZES = [X_train.shape[1], 250, 150, 120, 90, 3]  # Include input size and output size
 
     # Creating PyTorch datasets for training, validation, and testing
     train_dataset = TensorDataset(X_train, y_train)
