@@ -7,8 +7,6 @@ from scipy.signal import find_peaks
 from policies import *
 from helper import *
 from dnn import *
-from sklearn.decomposition import PCA
-
 
 RUN_NAME = 'unique'
 RUN_NOTES = 'these are notes, if needed'
@@ -26,10 +24,10 @@ THRESHOLD = 0.03
 RANDOM_STATE = 345
 BATCH_SIZE = 32
 DROPOUT_RATE = 0.2
-DNN_LAYERS = [77, 468, 3]
+DNN_LAYERS = [357, 468, 3]
 
 
-PATIENCE = 5
+PATIENCE = 3
 MAX_EPOCHS = 20
 LR = 0.001
 GRAD_CLIP_NORM_MAX_NORM = 1.0
@@ -61,7 +59,7 @@ if not os.path.exists(DATASET_DIR):
 
 class_policy_func, n_classes = get_class_info(CLASS_POLICY)
 
-# returns features, targets
+# returns dataloaders
 def load_existing_dataset(filename):
     features = []
     targets = []
@@ -131,10 +129,9 @@ def load_existing_dataset(filename):
     return train_loader, val_loader, test_loader
 
 
-def make_datasets(n_components):
+def make_datasets():
     binning_policy_func = get_binning_policy(BINNING_POLICY)
     norm_policy_func = get_norm_policy(NORM_POLICY)
-    pca = PCA(n_components=n_components)
 
     # These are the columns that we care about
     columns_to_keep = ['created_utc', 'labels'] + feature_columns
@@ -201,14 +198,10 @@ def make_datasets(n_components):
     features = (features - mean) / (std + 1e-6)
 
 
+
     # Splitting data into training, validation, and test sets
     X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=RANDOM_STATE)
     X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=RANDOM_STATE)
-
-    pca.fit(X_train)
-    X_train = torch.tensor(pca.transform(X_train), dtype=torch.float32)
-    X_val = torch.tensor(pca.transform(X_val), dtype=torch.float32)
-    X_test = torch.tensor(pca.transform(X_test), dtype=torch.float32)
 
     # Creating PyTorch datasets
     train_dataset = TensorDataset(X_train, y_train)
@@ -229,8 +222,8 @@ def make_datasets(n_components):
     return train_loader, val_loader, test_loader
 
 
-def make_model(layers=DNN_LAYERS):
-    return DNN(layers, DROPOUT_RATE)
+def make_model():
+    return DNN(DNN_LAYERS, DROPOUT_RATE)
 
 
 def train_model(model, train_loader, val_loader):
@@ -315,26 +308,16 @@ def eval_model(model, test_loader):
 
 
 if __name__ == "__main__":
-    seeds = [748, 87209, 679, 222, 62, 987]
-    pca_vals = [2, 4, 6, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]
-    pca_perfs = []
-    for pca_val in pca_vals:
-        avg_sum = 0
-        train_loader, val_loader, test_loader = make_datasets(n_components=pca_val)
-        for i in seeds:
-            RANDOM_STATE = i
-            new_layers = DNN_LAYERS
-            train_iter = iter(train_loader)
-            # Get the first batch
-            first_batch = next(train_iter)
-            # Now you can access the data and get its shape
-            new_layers[0] = first_batch[0].shape[0]
-            model = make_model(layers=new_layers)
+    avg_sum = 0
+    seeds = [748, 87209, 679, 222, 62, 987, 3, 56, 745, 673]
+    for i in seeds:
+        RANDOM_STATE = i
+        train_loader, val_loader, test_loader = make_datasets()
 
-            train_model(model, train_loader, val_loader)
+        model = make_model()
 
-            avg_sum += eval_model(model, test_loader)
-        pca_perfs.append(avg_sum / len(seeds))
-        print(f"Avg perf for seed={i}: {avg_sum / len(seeds)}")
+        train_model(model, train_loader, val_loader)
 
-    print(f"pca_vals={pca_vals}\npca_perfs={pca_perfs}")
+        avg_sum += eval_model(model, test_loader)
+
+    print(f"Avg perf: {avg_sum / len(seeds)}")

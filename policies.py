@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 from scipy.signal import find_peaks
 
-csv_dir = 'pivot_repo/threads'
-wp_dir = 'pivot_repo/win_probs'
-drive_dir = 'pivot_repo/drive_win_probs'
+csv_dir = 'threads'
+wp_dir = 'win_probs'
+drive_dir = 'drive_win_probs'
 
 
 '''
@@ -216,5 +216,3 @@ def ternary_classifier(val, threshold):
     else:
         return 2
 
-
-        
