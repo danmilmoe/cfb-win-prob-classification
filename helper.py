@@ -27,12 +27,12 @@ feature_columns = [
 
 # Helper functions
 def get_first_last_wp(filename):
-    with open(os.path.join(wp_dir, filename), 'r') as json_file:
+    with open(os.path.join(drive_dir, filename), 'r') as json_file:
         data = json.load(json_file)
 
     hometeam, awayteam = filename[:-5].split('_')
 
-    return data[0]["home_win_prob"], data[-1]["home_win_prob"]
+    return data[0]["start_win_prob"], data[-1]["end_win_prob"]
 
 
 def parse_labels(label):
@@ -94,3 +94,30 @@ def separate_by_affiliation(
     except Exception as e:
         print(f"An error occurred: {e}")
         return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+
+
+def detect_outliers(y, lag=30, threshold=1, influence=0.5):
+    # Initialize variables
+    signals = np.zeros(len(y))
+    filteredY = np.array(y[:lag])
+    avgFilter = [0]*len(y)
+    stdFilter = [0]*len(y)
+    avgFilter[lag-1] = np.mean(y[:lag])
+    stdFilter[lag-1] = np.std(y[:lag])
+
+    for i in range(lag, len(y)):
+        if abs(y[i] - avgFilter[i-1]) > threshold * stdFilter[i-1]:
+            if y[i] > avgFilter[i-1]:
+                signals[i] = 1   # Positive signal
+            else:
+                signals[i] = -1  # Negative signal
+            filteredY = np.append(filteredY, influence * y[i] + (1 - influence) * filteredY[i-1])
+        else:
+            signals[i] = 0     # No signal
+            filteredY = np.append(filteredY, y[i])
+        
+        # Update the filters
+        avgFilter[i] = np.mean(filteredY[i-lag+1:i+1])
+        stdFilter[i] = np.std(filteredY[i-lag+1:i+1])
+
+    return signals, np.sum(signals != 0)

@@ -10,6 +10,22 @@ wp_dir = 'win_probs'
 drive_dir = 'drive_win_probs'
 
 
+THRESHOLD = 0.05
+
+feature_columns = [
+    'Segment', 'WC', 'Analytic', 'Clout', 'Authentic', 'Tone', 'WPS', 'BigWords', 'Dic', 'Linguistic', 'function',
+    'pronoun', 'ppron', 'i', 'we', 'you', 'shehe', 'they', 'ipron', 'det', 'article', 'number', 'prep', 'auxverb',
+    'adverb', 'conj', 'negate', 'verb', 'adj', 'quantity', 'Drives', 'affiliation', 'achieve', 'power', 'Cognition',
+    'allnone', 'cogproc', 'insight', 'cause', 'discrep', 'tentat', 'certitude', 'differ', 'memory', 'Affect',
+    'tone_pos', 'tone_neg', 'emotion', 'emo_pos', 'emo_neg', 'emo_anx', 'emo_anger', 'emo_sad', 'swear', 'Social',
+    'socbehav', 'prosocial', 'polite', 'conflict', 'moral', 'comm', 'socrefs', 'family', 'friend', 'female', 'male',
+    'Culture', 'politic', 'ethnicity', 'tech', 'Lifestyle', 'leisure', 'home', 'work', 'money', 'relig', 'Physical',
+    'health', 'illness', 'wellness', 'mental', 'substances', 'sexual', 'food', 'death', 'need', 'want', 'acquire',
+    'lack', 'fulfill', 'fatigue', 'reward', 'risk', 'curiosity', 'allure', 'Perception', 'attention', 'motion',
+    'space', 'visual', 'auditory', 'feeling', 'time', 'focuspast', 'focuspresent', 'focusfuture', 'Conversation',
+    'netspeak', 'assent', 'nonflu', 'filler', 'AllPunc', 'Period', 'Comma', 'QMark', 'Exclam', 'Apostro', 'OtherP'
+]
+
 '''
 BINNING POLICIES
 
@@ -25,7 +41,7 @@ All of these functions (besides the first):
 
 # return the binning function
 def get_binning_policy(policy: str):
-    if policy == 'activity_spike':
+    if policy == 'spike':
         return bin_by_activity_spike
     elif policy == 'wp_swings':
         return bin_by_wp_swings
@@ -45,51 +61,59 @@ def bin_by_activity_spike(filename):
 
     try:
         # Only read the 'created_utc' column to save memory
-        utc_times = pd.read_csv(csv_path, usecols=['created_utc'], squeeze=True, dtype={'created_utc': np.int64})
+        utc_times = nd.array(pd.read_csv(csv_path, usecols=['created_utc'], squeeze=True, dtype={'created_utc': np.int64}))
     except Exception as e:
         print(f"Error loading or processing data from {csv_path}: {e}")
         return
 
     # Binning the timestamps
-    binned_timestamps = np.bincount(utc_times - utc_times.min())
+    num_bins =10
 
-    x = np.arange(len(binned_timestamps))
+    norm_val = (utc_bins.max() - utc_bins.min()) / num_bins
 
-    # Polynomial fitting
-    if len(x) > N_EVENTS + 1:
-        try:
-            print(f"Fitting a polynomial of degree {N_EVENTS + 1}")
-            coeffs = np.polyfit(x, binned_timestamps, N_EVENTS + 1)
-            poly = np.poly1d(coeffs)
-        except Exception as e:
-            print("Error in polynomial fitting:", e)
-            return
+    binned_timestamps = np.bincount(utc_bins / norm_val)
 
-        if vis:
-            plt.plot(x, binned_timestamps, 'o', label='Data points')
-            plt.plot(x, poly(x), '-', label=f'Polynomial Fit (Degree {N_EVENTS + 1})')
-            plt.legend()
-            plt.show()
+    signals, n_peaks = detect_outliers(binned_timestamps)
 
-        # Step 4: Find derivatives and roots to determine peaks
-        poly_deriv = np.polyder(poly)
-        critical_points = np.roots(poly_deriv)
-        real_critical_points = critical_points[np.isreal(critical_points)].real
+    print(signals, " ", n_peaks, flush=True)
+    exit(1)
 
-        # Filter points to those within the range of x
-        valid_critical_points = real_critical_points[(real_critical_points >= 0) & (real_critical_points <= max(x))]
+    '''
+        # Polynomial fitting
+        if len(x) > N_EVENTS + 1:
+            try:
+                print(f"Fitting a polynomial of degree {N_EVENTS + 1}")
+                coeffs = np.polyfit(x, binned_timestamps, N_EVENTS + 1)
+                poly = np.poly1d(coeffs)
+            except Exception as e:
+                print("Error in polynomial fitting:", e)
+                return
 
-        # Find which are peaks by checking second derivative
-        poly_second_deriv = np.polyder(poly, 2)
-        peaks = [cp for cp in valid_critical_points if poly_second_deriv(cp) < 0]
+            if vis:
+                plt.plot(x, binned_timestamps, 'o', label='Data points')
+                plt.plot(x, poly(x), '-', label=f'Polynomial Fit (Degree {N_EVENTS + 1})')
+                plt.legend()
+                plt.show()
 
-        print(f"Polynomial coefficients: {coeffs}")
-        print(f"Critical points (real, within range): {valid_critical_points}")
-        print(f"Peak points: {peaks}")
-    else:
-        print("Insufficient data points for polynomial fitting")
-        return []
+            # Step 4: Find derivatives and roots to determine peaks
+            poly_deriv = np.polyder(poly)
+            critical_points = np.roots(poly_deriv)
+            real_critical_points = critical_points[np.isreal(critical_points)].real
 
+            # Filter points to those within the range of x
+            valid_critical_points = real_critical_points[(real_critical_points >= 0) & (real_critical_points <= max(x))]
+
+            # Find which are peaks by checking second derivative
+            poly_second_deriv = np.polyder(poly, 2)
+            peaks = [cp for cp in valid_critical_points if poly_second_deriv(cp) < 0]
+
+            print(f"Polynomial coefficients: {coeffs}")
+            print(f"Critical points (real, within range): {valid_critical_points}")
+            print(f"Peak points: {peaks}")
+        else:
+            print("Insufficient data points for polynomial fitting")
+            return []
+    '''
     # Reading play data from JSON
     with open(json_path, 'r') as json_file:
         wp_data = json.load(json_file)
@@ -205,14 +229,27 @@ All of these functions (besides the first):
 
 '''
 def get_class_info(policy: str):
-    return ternary_classifier, 3
+    if policy == 'ternary':
+        return ternary_classifier, 3
+    elif policy == 'binary':
+        return binary_classifier, 2
+    else:
+        return ternary_classifier, 3
 
-def ternary_classifier(val, threshold):
+
+def ternary_classifier(val):
     # Store each target
-    if abs(val) < threshold:
+    if abs(val) < THRESHOLD:
         return 0
     elif val > 0:
         return 1
     else:
         return 2
 
+
+def binary_classifier(val):
+    # Store each target
+    if val < 0:
+        return 0
+    else:
+        return 1

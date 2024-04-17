@@ -1,0 +1,1833 @@
+Requirement already satisfied: pandas in /home/crsnell/.local/lib/python3.6/site-packages (1.1.5)
+Requirement already satisfied: numpy>=1.15.4 in /home/crsnell/.local/lib/python3.6/site-packages (from pandas) (1.19.5)
+Requirement already satisfied: python-dateutil>=2.7.3 in /home/crsnell/.local/lib/python3.6/site-packages (from pandas) (2.8.2)
+Requirement already satisfied: pytz>=2017.2 in /usr/lib/python3.6/site-packages (from pandas) (2017.2)
+Requirement already satisfied: six>=1.5 in /home/crsnell/.local/lib/python3.6/site-packages (from python-dateutil>=2.7.3->pandas) (1.15.0)
+Requirement already satisfied: tensorflow in /home/crsnell/.local/lib/python3.6/site-packages (2.6.2)
+Requirement already satisfied: h5py~=3.1.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (3.1.0)
+Requirement already satisfied: typing-extensions~=3.7.4 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (3.7.4.3)
+Requirement already satisfied: flatbuffers~=1.12.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.12)
+Requirement already satisfied: tensorflow-estimator<2.7,>=2.6.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (2.6.0)
+Requirement already satisfied: six~=1.15.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.15.0)
+Requirement already satisfied: gast==0.4.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (0.4.0)
+Requirement already satisfied: wrapt~=1.12.1 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.12.1)
+Requirement already satisfied: google-pasta~=0.2 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (0.2.0)
+Requirement already satisfied: grpcio<2.0,>=1.37.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.48.2)
+Requirement already satisfied: termcolor~=1.1.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.1.0)
+Requirement already satisfied: wheel~=0.35 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (0.37.1)
+Requirement already satisfied: keras<2.7,>=2.6.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (2.6.0)
+Requirement already satisfied: clang~=5.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (5.0)
+Requirement already satisfied: opt-einsum~=3.3.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (3.3.0)
+Requirement already satisfied: protobuf>=3.9.2 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (3.19.6)
+Requirement already satisfied: tensorboard<2.7,>=2.6.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (2.6.0)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.1.2)
+Requirement already satisfied: absl-py~=0.10 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (0.15.0)
+Requirement already satisfied: numpy~=1.19.2 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.19.5)
+Requirement already satisfied: astunparse~=1.6.3 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorflow) (1.6.3)
+Requirement already satisfied: cached-property in /home/crsnell/.local/lib/python3.6/site-packages (from h5py~=3.1.0->tensorflow) (1.5.2)
+Requirement already satisfied: setuptools>=41.0.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (59.6.0)
+Requirement already satisfied: requests<3,>=2.21.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (2.27.1)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (0.6.1)
+Requirement already satisfied: werkzeug>=0.11.15 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (2.0.3)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (0.4.6)
+Requirement already satisfied: google-auth<2,>=1.6.3 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (1.35.0)
+Requirement already satisfied: markdown>=2.6.8 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (3.3.7)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /home/crsnell/.local/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (1.8.1)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/crsnell/.local/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.7,>=2.6.0->tensorflow) (4.9)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/crsnell/.local/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.7,>=2.6.0->tensorflow) (0.3.0)
+Requirement already satisfied: cachetools<5.0,>=2.0.0 in /home/crsnell/.local/lib/python3.6/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.7,>=2.6.0->tensorflow) (4.2.4)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/crsnell/.local/lib/python3.6/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.7,>=2.6.0->tensorflow) (2.0.0)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/crsnell/.local/lib/python3.6/site-packages (from markdown>=2.6.8->tensorboard<2.7,>=2.6.0->tensorflow) (4.8.3)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (1.24.2)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/crsnell/.local/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2.0.12)
+Requirement already satisfied: certifi>=2017.4.17 in /home/crsnell/.local/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2024.2.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2.5)
+Requirement already satisfied: dataclasses in /home/crsnell/.local/lib/python3.6/site-packages (from werkzeug>=0.11.15->tensorboard<2.7,>=2.6.0->tensorflow) (0.8)
+Requirement already satisfied: zipp>=0.5 in /home/crsnell/.local/lib/python3.6/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<2.7,>=2.6.0->tensorflow) (3.6.0)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/crsnell/.local/lib/python3.6/site-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard<2.7,>=2.6.0->tensorflow) (0.5.1)
+Requirement already satisfied: oauthlib>=3.0.0 in /home/crsnell/.local/lib/python3.6/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.7,>=2.6.0->tensorflow) (3.2.2)
+Requirement already satisfied: scikit-learn in /home/crsnell/.local/lib/python3.6/site-packages (0.24.2)
+Requirement already satisfied: scipy>=0.19.1 in /home/crsnell/.local/lib/python3.6/site-packages (from scikit-learn) (1.5.4)
+Requirement already satisfied: numpy>=1.13.3 in /home/crsnell/.local/lib/python3.6/site-packages (from scikit-learn) (1.19.5)
+Requirement already satisfied: joblib>=0.11 in /home/crsnell/.local/lib/python3.6/site-packages (from scikit-learn) (1.1.1)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/crsnell/.local/lib/python3.6/site-packages (from scikit-learn) (3.1.0)
+Requirement already satisfied: keras in /home/crsnell/.local/lib/python3.6/site-packages (2.6.0)
+Requirement already satisfied: numpy in /home/crsnell/.local/lib/python3.6/site-packages (1.19.5)
+
+RUN_NAME: unique
+RUN_NOTES: these are notes, if needed
+DATASET_DIR: binned_by_drive_0
+BINNING_POLICY: drive
+NORM_POLICY: standard
+CLASS_POLICY: ternary
+
+THRESHOLD: 0.03
+random_state: 345
+BATCH_SIZE: 32
+DROPOUT_RATE: 0.2
+dnn_layers: [77, 800, 3]
+
+PATIENCE: 5
+MAX_EPOCHS: 20
+LEARNING_RATE: 0.001
+GRAD_CLIP_NORM_MAX_NORM: 1.0
+
+NaN values found in features, replacing with 0
+Next Dataset . . .pca_val=40
+Training with Seed=748
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1318, Acc: 0.4163
+Validation Loss: 1.1745
+Epoch 2/20 - Loss: 1.0400, Acc: 0.4927
+Validation Loss: 1.1530
+Epoch 3/20 - Loss: 0.9907, Acc: 0.5146
+Validation Loss: 1.1892
+Epoch 4/20 - Loss: 0.9377, Acc: 0.5511
+Validation Loss: 1.1712
+Epoch 5/20 - Loss: 0.9024, Acc: 0.5823
+Validation Loss: 1.1837
+Epoch 6/20 - Loss: 0.9029, Acc: 0.5803
+Validation Loss: 1.2533
+Epoch 7/20 - Loss: 0.8506, Acc: 0.6056
+Validation Loss: 1.1907
+Early stopping triggered
+Test Accuracy: 0.3970276008492569
+Confusion Matrix:
+[[49 32 71]
+ [35 51 79]
+ [31 36 87]]
+Training with Seed=87209
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1444, Acc: 0.4037
+Validation Loss: 1.1334
+Epoch 2/20 - Loss: 1.0508, Acc: 0.4741
+Validation Loss: 1.1431
+Epoch 3/20 - Loss: 0.9973, Acc: 0.5279
+Validation Loss: 1.1507
+Epoch 4/20 - Loss: 0.9210, Acc: 0.5531
+Validation Loss: 1.1246
+Epoch 5/20 - Loss: 0.9392, Acc: 0.5511
+Validation Loss: 1.1524
+Epoch 6/20 - Loss: 0.8740, Acc: 0.5943
+Validation Loss: 1.1418
+Epoch 7/20 - Loss: 0.8697, Acc: 0.5930
+Validation Loss: 1.1572
+Epoch 8/20 - Loss: 0.8255, Acc: 0.6208
+Validation Loss: 1.2210
+Epoch 9/20 - Loss: 0.8014, Acc: 0.6328
+Validation Loss: 1.1945
+Early stopping triggered
+Test Accuracy: 0.4012738853503185
+Confusion Matrix:
+[[52 63 37]
+ [33 77 55]
+ [28 66 60]]
+Training with Seed=679
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1468, Acc: 0.4223
+Validation Loss: 1.1674
+Epoch 2/20 - Loss: 1.0116, Acc: 0.4867
+Validation Loss: 1.1764
+Epoch 3/20 - Loss: 0.9824, Acc: 0.5299
+Validation Loss: 1.1809
+Epoch 4/20 - Loss: 0.9763, Acc: 0.5246
+Validation Loss: 1.1831
+Epoch 5/20 - Loss: 0.9337, Acc: 0.5544
+Validation Loss: 1.1998
+Epoch 6/20 - Loss: 0.8786, Acc: 0.5989
+Validation Loss: 1.2001
+Early stopping triggered
+Test Accuracy: 0.39490445859872614
+Confusion Matrix:
+[[55 33 64]
+ [38 54 73]
+ [40 37 77]]
+Training with Seed=222
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1501, Acc: 0.3991
+Validation Loss: 1.1576
+Epoch 2/20 - Loss: 1.0308, Acc: 0.4880
+Validation Loss: 1.1468
+Epoch 3/20 - Loss: 0.9679, Acc: 0.5378
+Validation Loss: 1.1757
+Epoch 4/20 - Loss: 0.9910, Acc: 0.5046
+Validation Loss: 1.1416
+Epoch 5/20 - Loss: 0.9086, Acc: 0.5584
+Validation Loss: 1.1473
+Epoch 6/20 - Loss: 0.8747, Acc: 0.5857
+Validation Loss: 1.1633
+Epoch 7/20 - Loss: 0.8608, Acc: 0.6036
+Validation Loss: 1.1831
+Epoch 8/20 - Loss: 0.8264, Acc: 0.6301
+Validation Loss: 1.2458
+Epoch 9/20 - Loss: 0.8057, Acc: 0.6454
+Validation Loss: 1.2411
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[107  19  26]
+ [ 87  42  36]
+ [ 86  25  43]]
+Training with Seed=62
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1018, Acc: 0.4343
+Validation Loss: 1.1609
+Epoch 2/20 - Loss: 1.0301, Acc: 0.4734
+Validation Loss: 1.1984
+Epoch 3/20 - Loss: 0.9815, Acc: 0.5232
+Validation Loss: 1.1703
+Epoch 4/20 - Loss: 0.9650, Acc: 0.5193
+Validation Loss: 1.1605
+Epoch 5/20 - Loss: 0.9251, Acc: 0.5664
+Validation Loss: 1.1826
+Epoch 6/20 - Loss: 0.8775, Acc: 0.5916
+Validation Loss: 1.1811
+Epoch 7/20 - Loss: 0.8609, Acc: 0.6228
+Validation Loss: 1.1804
+Epoch 8/20 - Loss: 0.8429, Acc: 0.6023
+Validation Loss: 1.2147
+Epoch 9/20 - Loss: 0.8187, Acc: 0.6268
+Validation Loss: 1.2062
+Early stopping triggered
+Test Accuracy: 0.4309978768577495
+Confusion Matrix:
+[[96 29 27]
+ [73 52 40]
+ [73 26 55]]
+Training with Seed=45
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1176, Acc: 0.4363
+Validation Loss: 1.1360
+Epoch 2/20 - Loss: 1.0420, Acc: 0.4781
+Validation Loss: 1.1745
+Epoch 3/20 - Loss: 1.0019, Acc: 0.5066
+Validation Loss: 1.1952
+Epoch 4/20 - Loss: 0.9488, Acc: 0.5618
+Validation Loss: 1.1788
+Epoch 5/20 - Loss: 0.9610, Acc: 0.5584
+Validation Loss: 1.1865
+Epoch 6/20 - Loss: 0.9067, Acc: 0.5810
+Validation Loss: 1.1599
+Early stopping triggered
+Test Accuracy: 0.39278131634819535
+Confusion Matrix:
+[[ 41  89  22]
+ [ 27 101  37]
+ [ 30  81  43]]
+Training with Seed=235
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1288, Acc: 0.4011
+Validation Loss: 1.1811
+Epoch 2/20 - Loss: 1.0299, Acc: 0.5040
+Validation Loss: 1.1995
+Epoch 3/20 - Loss: 0.9896, Acc: 0.5246
+Validation Loss: 1.1730
+Epoch 4/20 - Loss: 0.9440, Acc: 0.5325
+Validation Loss: 1.1433
+Epoch 5/20 - Loss: 0.9160, Acc: 0.5591
+Validation Loss: 1.1956
+Epoch 6/20 - Loss: 0.8797, Acc: 0.5797
+Validation Loss: 1.2489
+Epoch 7/20 - Loss: 0.8743, Acc: 0.5870
+Validation Loss: 1.2098
+Epoch 8/20 - Loss: 0.8473, Acc: 0.6135
+Validation Loss: 1.1737
+Epoch 9/20 - Loss: 0.8120, Acc: 0.6375
+Validation Loss: 1.2182
+Early stopping triggered
+Test Accuracy: 0.4012738853503185
+Confusion Matrix:
+[[37 30 85]
+ [18 55 92]
+ [19 38 97]]
+Training with Seed=333
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1139, Acc: 0.4283
+Validation Loss: 1.1561
+Epoch 2/20 - Loss: 1.0094, Acc: 0.4841
+Validation Loss: 1.1977
+Epoch 3/20 - Loss: 1.0030, Acc: 0.5153
+Validation Loss: 1.1479
+Epoch 4/20 - Loss: 0.9747, Acc: 0.5259
+Validation Loss: 1.1757
+Epoch 5/20 - Loss: 0.9068, Acc: 0.5730
+Validation Loss: 1.1896
+Epoch 6/20 - Loss: 0.8901, Acc: 0.5677
+Validation Loss: 1.2419
+Epoch 7/20 - Loss: 0.8283, Acc: 0.6288
+Validation Loss: 1.2262
+Epoch 8/20 - Loss: 0.8492, Acc: 0.6149
+Validation Loss: 1.2322
+Early stopping triggered
+Test Accuracy: 0.3630573248407643
+Confusion Matrix:
+[[36 33 83]
+ [35 44 86]
+ [36 27 91]]
+Training with Seed=35744
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1203, Acc: 0.4183
+Validation Loss: 1.1852
+Epoch 2/20 - Loss: 1.0232, Acc: 0.4861
+Validation Loss: 1.1596
+Epoch 3/20 - Loss: 0.9730, Acc: 0.5266
+Validation Loss: 1.1571
+Epoch 4/20 - Loss: 0.9290, Acc: 0.5611
+Validation Loss: 1.1805
+Epoch 5/20 - Loss: 0.9031, Acc: 0.5790
+Validation Loss: 1.2467
+Epoch 6/20 - Loss: 0.9118, Acc: 0.5797
+Validation Loss: 1.1696
+Epoch 7/20 - Loss: 0.8464, Acc: 0.6155
+Validation Loss: 1.2297
+Epoch 8/20 - Loss: 0.8731, Acc: 0.6135
+Validation Loss: 1.1802
+Early stopping triggered
+Test Accuracy: 0.37791932059447986
+Confusion Matrix:
+[[58 67 27]
+ [47 79 39]
+ [53 60 41]]
+Training with Seed=2523
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1287, Acc: 0.4276
+Validation Loss: 1.1868
+Epoch 2/20 - Loss: 1.0730, Acc: 0.4761
+Validation Loss: 1.1650
+Epoch 3/20 - Loss: 0.9946, Acc: 0.5153
+Validation Loss: 1.1364
+Epoch 4/20 - Loss: 0.9456, Acc: 0.5651
+Validation Loss: 1.1625
+Epoch 5/20 - Loss: 0.9213, Acc: 0.5750
+Validation Loss: 1.1714
+Epoch 6/20 - Loss: 0.8664, Acc: 0.6036
+Validation Loss: 1.1797
+Epoch 7/20 - Loss: 0.8969, Acc: 0.5770
+Validation Loss: 1.1654
+Epoch 8/20 - Loss: 0.8272, Acc: 0.6169
+Validation Loss: 1.1823
+Early stopping triggered
+Test Accuracy: 0.43736730360934184
+Confusion Matrix:
+[[89 42 21]
+ [63 78 24]
+ [68 47 39]]
+Training with Seed=235
+torch.Size([32, 40])
+[40, 800, 3]
+Epoch 1/20 - Loss: 1.1252, Acc: 0.4309
+Validation Loss: 1.1795
+Epoch 2/20 - Loss: 1.0398, Acc: 0.4894
+Validation Loss: 1.1107
+Epoch 3/20 - Loss: 1.0150, Acc: 0.4894
+Validation Loss: 1.1290
+Epoch 4/20 - Loss: 0.9272, Acc: 0.5564
+Validation Loss: 1.1641
+Epoch 5/20 - Loss: 0.9338, Acc: 0.5531
+Validation Loss: 1.1554
+Epoch 6/20 - Loss: 0.8976, Acc: 0.5757
+Validation Loss: 1.1540
+Epoch 7/20 - Loss: 0.8606, Acc: 0.6182
+Validation Loss: 1.1778
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[109  17  26]
+ [ 96  37  32]
+ [ 86  24  44]]
+Avg perf for seed=235: 0.40069484655471926
+Next Dataset . . .pca_val=41
+Training with Seed=748
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1436, Acc: 0.4050
+Validation Loss: 1.2001
+Epoch 2/20 - Loss: 1.0887, Acc: 0.4615
+Validation Loss: 1.1481
+Epoch 3/20 - Loss: 1.0012, Acc: 0.4947
+Validation Loss: 1.2700
+Epoch 4/20 - Loss: 0.9844, Acc: 0.5405
+Validation Loss: 1.1798
+Epoch 5/20 - Loss: 0.9039, Acc: 0.5750
+Validation Loss: 1.1906
+Epoch 6/20 - Loss: 0.9155, Acc: 0.5684
+Validation Loss: 1.2133
+Epoch 7/20 - Loss: 0.8790, Acc: 0.5876
+Validation Loss: 1.2309
+Early stopping triggered
+Test Accuracy: 0.37791932059447986
+Confusion Matrix:
+[[60 48 60]
+ [36 52 74]
+ [40 35 66]]
+Training with Seed=87209
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1266, Acc: 0.4270
+Validation Loss: 1.1645
+Epoch 2/20 - Loss: 1.0461, Acc: 0.4708
+Validation Loss: 1.1908
+Epoch 3/20 - Loss: 1.0059, Acc: 0.5153
+Validation Loss: 1.2050
+Epoch 4/20 - Loss: 0.9661, Acc: 0.5232
+Validation Loss: 1.1605
+Epoch 5/20 - Loss: 0.9228, Acc: 0.5691
+Validation Loss: 1.2382
+Epoch 6/20 - Loss: 0.9370, Acc: 0.5697
+Validation Loss: 1.1787
+Epoch 7/20 - Loss: 0.8312, Acc: 0.6222
+Validation Loss: 1.1912
+Epoch 8/20 - Loss: 0.8726, Acc: 0.6142
+Validation Loss: 1.2631
+Epoch 9/20 - Loss: 0.8479, Acc: 0.6076
+Validation Loss: 1.2121
+Early stopping triggered
+Test Accuracy: 0.3842887473460722
+Confusion Matrix:
+[[59 35 74]
+ [40 43 79]
+ [40 22 79]]
+Training with Seed=679
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1179, Acc: 0.4376
+Validation Loss: 1.1856
+Epoch 2/20 - Loss: 1.0432, Acc: 0.4880
+Validation Loss: 1.1903
+Epoch 3/20 - Loss: 1.0024, Acc: 0.5252
+Validation Loss: 1.1849
+Epoch 4/20 - Loss: 0.9377, Acc: 0.5511
+Validation Loss: 1.1939
+Epoch 5/20 - Loss: 0.9312, Acc: 0.5611
+Validation Loss: 1.2318
+Epoch 6/20 - Loss: 0.8720, Acc: 0.5896
+Validation Loss: 1.1852
+Epoch 7/20 - Loss: 0.8930, Acc: 0.5903
+Validation Loss: 1.1916
+Epoch 8/20 - Loss: 0.8007, Acc: 0.6547
+Validation Loss: 1.2118
+Early stopping triggered
+Test Accuracy: 0.38004246284501064
+Confusion Matrix:
+[[57 42 69]
+ [39 51 72]
+ [38 32 71]]
+Training with Seed=222
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1214, Acc: 0.4263
+Validation Loss: 1.2145
+Epoch 2/20 - Loss: 1.0428, Acc: 0.4708
+Validation Loss: 1.1997
+Epoch 3/20 - Loss: 1.0121, Acc: 0.5186
+Validation Loss: 1.2030
+Epoch 4/20 - Loss: 0.9896, Acc: 0.5272
+Validation Loss: 1.1824
+Epoch 5/20 - Loss: 0.9222, Acc: 0.5544
+Validation Loss: 1.2085
+Epoch 6/20 - Loss: 0.9054, Acc: 0.5644
+Validation Loss: 1.2114
+Epoch 7/20 - Loss: 0.8713, Acc: 0.5969
+Validation Loss: 1.1905
+Epoch 8/20 - Loss: 0.8190, Acc: 0.6341
+Validation Loss: 1.2305
+Epoch 9/20 - Loss: 0.8263, Acc: 0.6268
+Validation Loss: 1.2472
+Early stopping triggered
+Test Accuracy: 0.4118895966029724
+Confusion Matrix:
+[[65 31 72]
+ [34 38 90]
+ [30 20 91]]
+Training with Seed=62
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1334, Acc: 0.4157
+Validation Loss: 1.1849
+Epoch 2/20 - Loss: 1.0268, Acc: 0.5027
+Validation Loss: 1.1815
+Epoch 3/20 - Loss: 0.9752, Acc: 0.5452
+Validation Loss: 1.2037
+Epoch 4/20 - Loss: 0.9707, Acc: 0.5345
+Validation Loss: 1.1870
+Epoch 5/20 - Loss: 0.9130, Acc: 0.5737
+Validation Loss: 1.2017
+Epoch 6/20 - Loss: 0.8797, Acc: 0.6016
+Validation Loss: 1.2550
+Epoch 7/20 - Loss: 0.8753, Acc: 0.6135
+Validation Loss: 1.2132
+Early stopping triggered
+Test Accuracy: 0.4140127388535032
+Confusion Matrix:
+[[ 44  89  35]
+ [ 20 101  41]
+ [ 24  67  50]]
+Training with Seed=45
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1377, Acc: 0.4250
+Validation Loss: 1.2317
+Epoch 2/20 - Loss: 1.0574, Acc: 0.4847
+Validation Loss: 1.2057
+Epoch 3/20 - Loss: 0.9867, Acc: 0.5166
+Validation Loss: 1.1765
+Epoch 4/20 - Loss: 0.9584, Acc: 0.5544
+Validation Loss: 1.1961
+Epoch 5/20 - Loss: 0.9105, Acc: 0.5631
+Validation Loss: 1.2131
+Epoch 6/20 - Loss: 0.9266, Acc: 0.5498
+Validation Loss: 1.2180
+Epoch 7/20 - Loss: 0.8643, Acc: 0.6122
+Validation Loss: 1.2154
+Epoch 8/20 - Loss: 0.8352, Acc: 0.6069
+Validation Loss: 1.1954
+Early stopping triggered
+Test Accuracy: 0.40976645435244163
+Confusion Matrix:
+[[55 52 61]
+ [25 62 75]
+ [28 37 76]]
+Training with Seed=235
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1651, Acc: 0.4024
+Validation Loss: 1.1565
+Epoch 2/20 - Loss: 1.0617, Acc: 0.4608
+Validation Loss: 1.1671
+Epoch 3/20 - Loss: 1.0018, Acc: 0.5093
+Validation Loss: 1.2272
+Epoch 4/20 - Loss: 0.9401, Acc: 0.5538
+Validation Loss: 1.1774
+Epoch 5/20 - Loss: 0.9099, Acc: 0.5691
+Validation Loss: 1.1943
+Epoch 6/20 - Loss: 0.9110, Acc: 0.5730
+Validation Loss: 1.1985
+Early stopping triggered
+Test Accuracy: 0.4182590233545648
+Confusion Matrix:
+[[89 37 42]
+ [68 55 39]
+ [55 33 53]]
+Training with Seed=333
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1554, Acc: 0.4050
+Validation Loss: 1.1789
+Epoch 2/20 - Loss: 1.0391, Acc: 0.5013
+Validation Loss: 1.2208
+Epoch 3/20 - Loss: 0.9886, Acc: 0.5126
+Validation Loss: 1.1691
+Epoch 4/20 - Loss: 0.9813, Acc: 0.5425
+Validation Loss: 1.1709
+Epoch 5/20 - Loss: 0.9183, Acc: 0.5704
+Validation Loss: 1.2225
+Epoch 6/20 - Loss: 0.8975, Acc: 0.5843
+Validation Loss: 1.2389
+Epoch 7/20 - Loss: 0.8806, Acc: 0.6109
+Validation Loss: 1.2089
+Epoch 8/20 - Loss: 0.8362, Acc: 0.6321
+Validation Loss: 1.2054
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[62 42 64]
+ [28 55 79]
+ [30 38 73]]
+Training with Seed=35744
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1664, Acc: 0.4150
+Validation Loss: 1.2689
+Epoch 2/20 - Loss: 1.0487, Acc: 0.4834
+Validation Loss: 1.2083
+Epoch 3/20 - Loss: 0.9961, Acc: 0.5232
+Validation Loss: 1.2110
+Epoch 4/20 - Loss: 0.9711, Acc: 0.5359
+Validation Loss: 1.2055
+Epoch 5/20 - Loss: 0.9396, Acc: 0.5398
+Validation Loss: 1.2365
+Epoch 6/20 - Loss: 0.9075, Acc: 0.5657
+Validation Loss: 1.2005
+Epoch 7/20 - Loss: 0.8615, Acc: 0.6109
+Validation Loss: 1.2402
+Epoch 8/20 - Loss: 0.8328, Acc: 0.6135
+Validation Loss: 1.2145
+Epoch 9/20 - Loss: 0.8031, Acc: 0.6348
+Validation Loss: 1.2752
+Epoch 10/20 - Loss: 0.7886, Acc: 0.6574
+Validation Loss: 1.2582
+Epoch 11/20 - Loss: 0.7639, Acc: 0.6687
+Validation Loss: 1.3112
+Early stopping triggered
+Test Accuracy: 0.40552016985138006
+Confusion Matrix:
+[[47 67 54]
+ [24 79 59]
+ [24 52 65]]
+Training with Seed=2523
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1392, Acc: 0.4197
+Validation Loss: 1.2156
+Epoch 2/20 - Loss: 1.0581, Acc: 0.4622
+Validation Loss: 1.1804
+Epoch 3/20 - Loss: 1.0141, Acc: 0.4940
+Validation Loss: 1.1917
+Epoch 4/20 - Loss: 0.9803, Acc: 0.5305
+Validation Loss: 1.2120
+Epoch 5/20 - Loss: 0.9368, Acc: 0.5624
+Validation Loss: 1.2402
+Epoch 6/20 - Loss: 0.8903, Acc: 0.5843
+Validation Loss: 1.2255
+Epoch 7/20 - Loss: 0.8654, Acc: 0.6056
+Validation Loss: 1.2243
+Early stopping triggered
+Test Accuracy: 0.3885350318471338
+Confusion Matrix:
+[[91 41 36]
+ [73 47 42]
+ [62 34 45]]
+Training with Seed=235
+torch.Size([32, 41])
+[41, 800, 3]
+Epoch 1/20 - Loss: 1.1309, Acc: 0.4250
+Validation Loss: 1.1933
+Epoch 2/20 - Loss: 1.0482, Acc: 0.4854
+Validation Loss: 1.1812
+Epoch 3/20 - Loss: 1.0239, Acc: 0.4973
+Validation Loss: 1.1769
+Epoch 4/20 - Loss: 0.9523, Acc: 0.5365
+Validation Loss: 1.2367
+Epoch 5/20 - Loss: 0.9442, Acc: 0.5505
+Validation Loss: 1.1954
+Epoch 6/20 - Loss: 0.8923, Acc: 0.5618
+Validation Loss: 1.1924
+Epoch 7/20 - Loss: 0.8726, Acc: 0.5996
+Validation Loss: 1.2443
+Epoch 8/20 - Loss: 0.8674, Acc: 0.5963
+Validation Loss: 1.2370
+Early stopping triggered
+Test Accuracy: 0.4288747346072187
+Confusion Matrix:
+[[94 50 24]
+ [67 72 23]
+ [59 46 36]]
+Avg perf for seed=235: 0.4020459370777843
+Next Dataset . . .pca_val=42
+Training with Seed=748
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1494, Acc: 0.4210
+Validation Loss: 1.1445
+Epoch 2/20 - Loss: 1.0670, Acc: 0.4748
+Validation Loss: 1.1516
+Epoch 3/20 - Loss: 1.0081, Acc: 0.5126
+Validation Loss: 1.1674
+Epoch 4/20 - Loss: 0.9620, Acc: 0.5339
+Validation Loss: 1.1736
+Epoch 5/20 - Loss: 0.9394, Acc: 0.5458
+Validation Loss: 1.1638
+Epoch 6/20 - Loss: 0.8955, Acc: 0.5730
+Validation Loss: 1.2044
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[58 33 77]
+ [34 48 80]
+ [41 14 86]]
+Training with Seed=87209
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1495, Acc: 0.4157
+Validation Loss: 1.1846
+Epoch 2/20 - Loss: 1.0632, Acc: 0.4708
+Validation Loss: 1.1677
+Epoch 3/20 - Loss: 0.9944, Acc: 0.5206
+Validation Loss: 1.1993
+Epoch 4/20 - Loss: 0.9808, Acc: 0.5352
+Validation Loss: 1.1761
+Epoch 5/20 - Loss: 0.9452, Acc: 0.5505
+Validation Loss: 1.1865
+Epoch 6/20 - Loss: 0.9199, Acc: 0.5551
+Validation Loss: 1.1875
+Epoch 7/20 - Loss: 0.8875, Acc: 0.5850
+Validation Loss: 1.1999
+Early stopping triggered
+Test Accuracy: 0.3842887473460722
+Confusion Matrix:
+[[39 62 67]
+ [18 63 81]
+ [16 46 79]]
+Training with Seed=679
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1399, Acc: 0.4256
+Validation Loss: 1.2544
+Epoch 2/20 - Loss: 1.0704, Acc: 0.4675
+Validation Loss: 1.2262
+Epoch 3/20 - Loss: 1.0084, Acc: 0.5100
+Validation Loss: 1.1724
+Epoch 4/20 - Loss: 0.9736, Acc: 0.5339
+Validation Loss: 1.1692
+Epoch 5/20 - Loss: 0.9335, Acc: 0.5432
+Validation Loss: 1.1871
+Epoch 6/20 - Loss: 0.9104, Acc: 0.5710
+Validation Loss: 1.1974
+Epoch 7/20 - Loss: 0.8935, Acc: 0.5770
+Validation Loss: 1.2448
+Epoch 8/20 - Loss: 0.8704, Acc: 0.6049
+Validation Loss: 1.1968
+Epoch 9/20 - Loss: 0.8050, Acc: 0.6487
+Validation Loss: 1.2399
+Early stopping triggered
+Test Accuracy: 0.3970276008492569
+Confusion Matrix:
+[[77 53 38]
+ [64 64 34]
+ [63 32 46]]
+Training with Seed=222
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1335, Acc: 0.4263
+Validation Loss: 1.1434
+Epoch 2/20 - Loss: 1.0626, Acc: 0.4602
+Validation Loss: 1.1744
+Epoch 3/20 - Loss: 0.9902, Acc: 0.5133
+Validation Loss: 1.1628
+Epoch 4/20 - Loss: 0.9619, Acc: 0.5339
+Validation Loss: 1.1781
+Epoch 5/20 - Loss: 0.9462, Acc: 0.5518
+Validation Loss: 1.1982
+Epoch 6/20 - Loss: 0.9224, Acc: 0.5863
+Validation Loss: 1.1722
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[ 49 106  13]
+ [ 27 121  14]
+ [ 37  82  22]]
+Training with Seed=62
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1575, Acc: 0.3845
+Validation Loss: 1.1763
+Epoch 2/20 - Loss: 1.0555, Acc: 0.4794
+Validation Loss: 1.1690
+Epoch 3/20 - Loss: 1.0021, Acc: 0.4947
+Validation Loss: 1.1532
+Epoch 4/20 - Loss: 0.9812, Acc: 0.5279
+Validation Loss: 1.2158
+Epoch 5/20 - Loss: 0.9403, Acc: 0.5584
+Validation Loss: 1.1963
+Epoch 6/20 - Loss: 0.8957, Acc: 0.5790
+Validation Loss: 1.2327
+Epoch 7/20 - Loss: 0.8510, Acc: 0.6042
+Validation Loss: 1.2365
+Epoch 8/20 - Loss: 0.8276, Acc: 0.6454
+Validation Loss: 1.2047
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[90 48 30]
+ [79 62 21]
+ [66 35 40]]
+Training with Seed=45
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1360, Acc: 0.4190
+Validation Loss: 1.1821
+Epoch 2/20 - Loss: 1.0277, Acc: 0.4947
+Validation Loss: 1.1616
+Epoch 3/20 - Loss: 0.9869, Acc: 0.5212
+Validation Loss: 1.1677
+Epoch 4/20 - Loss: 0.9693, Acc: 0.5252
+Validation Loss: 1.1866
+Epoch 5/20 - Loss: 0.9284, Acc: 0.5744
+Validation Loss: 1.1843
+Epoch 6/20 - Loss: 0.8640, Acc: 0.5896
+Validation Loss: 1.2491
+Epoch 7/20 - Loss: 0.9017, Acc: 0.5837
+Validation Loss: 1.2638
+Early stopping triggered
+Test Accuracy: 0.3970276008492569
+Confusion Matrix:
+[[58 66 44]
+ [40 77 45]
+ [39 50 52]]
+Training with Seed=235
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.0945, Acc: 0.4230
+Validation Loss: 1.2081
+Epoch 2/20 - Loss: 1.0290, Acc: 0.5027
+Validation Loss: 1.1945
+Epoch 3/20 - Loss: 1.0224, Acc: 0.4894
+Validation Loss: 1.1732
+Epoch 4/20 - Loss: 0.9383, Acc: 0.5518
+Validation Loss: 1.1944
+Epoch 5/20 - Loss: 0.9311, Acc: 0.5644
+Validation Loss: 1.1914
+Epoch 6/20 - Loss: 0.8920, Acc: 0.5604
+Validation Loss: 1.2128
+Epoch 7/20 - Loss: 0.8471, Acc: 0.5996
+Validation Loss: 1.2355
+Epoch 8/20 - Loss: 0.8499, Acc: 0.6169
+Validation Loss: 1.2485
+Early stopping triggered
+Test Accuracy: 0.416135881104034
+Confusion Matrix:
+[[82 61 25]
+ [66 75 21]
+ [58 44 39]]
+Training with Seed=333
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1439, Acc: 0.4137
+Validation Loss: 1.2223
+Epoch 2/20 - Loss: 1.0522, Acc: 0.4774
+Validation Loss: 1.1970
+Epoch 3/20 - Loss: 1.0442, Acc: 0.4960
+Validation Loss: 1.2086
+Epoch 4/20 - Loss: 0.9627, Acc: 0.5644
+Validation Loss: 1.1850
+Epoch 5/20 - Loss: 0.9419, Acc: 0.5598
+Validation Loss: 1.1881
+Epoch 6/20 - Loss: 0.8970, Acc: 0.5770
+Validation Loss: 1.2623
+Epoch 7/20 - Loss: 0.8948, Acc: 0.5916
+Validation Loss: 1.2400
+Epoch 8/20 - Loss: 0.8908, Acc: 0.5943
+Validation Loss: 1.2184
+Epoch 9/20 - Loss: 0.8493, Acc: 0.6029
+Validation Loss: 1.2463
+Early stopping triggered
+Test Accuracy: 0.4182590233545648
+Confusion Matrix:
+[[85 53 30]
+ [69 68 25]
+ [55 42 44]]
+Training with Seed=35744
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1268, Acc: 0.4290
+Validation Loss: 1.1689
+Epoch 2/20 - Loss: 1.0408, Acc: 0.4967
+Validation Loss: 1.1575
+Epoch 3/20 - Loss: 0.9897, Acc: 0.5080
+Validation Loss: 1.1507
+Epoch 4/20 - Loss: 0.9346, Acc: 0.5538
+Validation Loss: 1.1555
+Epoch 5/20 - Loss: 0.9444, Acc: 0.5525
+Validation Loss: 1.1732
+Epoch 6/20 - Loss: 0.9005, Acc: 0.5750
+Validation Loss: 1.1646
+Epoch 7/20 - Loss: 0.8326, Acc: 0.6215
+Validation Loss: 1.2202
+Epoch 8/20 - Loss: 0.8631, Acc: 0.6155
+Validation Loss: 1.2141
+Early stopping triggered
+Test Accuracy: 0.4267515923566879
+Confusion Matrix:
+[[ 50  89  29]
+ [ 30 104  28]
+ [ 20  74  47]]
+Training with Seed=2523
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1529, Acc: 0.3977
+Validation Loss: 1.1508
+Epoch 2/20 - Loss: 1.0592, Acc: 0.4814
+Validation Loss: 1.1488
+Epoch 3/20 - Loss: 1.0062, Acc: 0.5199
+Validation Loss: 1.1651
+Epoch 4/20 - Loss: 0.9590, Acc: 0.5212
+Validation Loss: 1.1570
+Epoch 5/20 - Loss: 0.9459, Acc: 0.5498
+Validation Loss: 1.1779
+Epoch 6/20 - Loss: 0.9183, Acc: 0.5717
+Validation Loss: 1.1695
+Epoch 7/20 - Loss: 0.8695, Acc: 0.5956
+Validation Loss: 1.2025
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[53 50 65]
+ [37 62 63]
+ [34 32 75]]
+Training with Seed=235
+torch.Size([32, 42])
+[42, 800, 3]
+Epoch 1/20 - Loss: 1.1567, Acc: 0.4004
+Validation Loss: 1.1667
+Epoch 2/20 - Loss: 1.0256, Acc: 0.5046
+Validation Loss: 1.1737
+Epoch 3/20 - Loss: 1.0565, Acc: 0.4854
+Validation Loss: 1.1726
+Epoch 4/20 - Loss: 0.9799, Acc: 0.5286
+Validation Loss: 1.1651
+Epoch 5/20 - Loss: 0.8937, Acc: 0.5996
+Validation Loss: 1.1930
+Epoch 6/20 - Loss: 0.8938, Acc: 0.5724
+Validation Loss: 1.2139
+Epoch 7/20 - Loss: 0.8530, Acc: 0.6009
+Validation Loss: 1.2292
+Epoch 8/20 - Loss: 0.8418, Acc: 0.6182
+Validation Loss: 1.2473
+Epoch 9/20 - Loss: 0.8458, Acc: 0.6202
+Validation Loss: 1.2063
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[79 63 26]
+ [52 83 27]
+ [57 56 28]]
+Avg perf for seed=235: 0.4062922215788458
+Next Dataset . . .pca_val=43
+Training with Seed=748
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1297, Acc: 0.4243
+Validation Loss: 1.2135
+Epoch 2/20 - Loss: 1.0682, Acc: 0.4887
+Validation Loss: 1.1569
+Epoch 3/20 - Loss: 0.9980, Acc: 0.5120
+Validation Loss: 1.2013
+Epoch 4/20 - Loss: 0.9476, Acc: 0.5551
+Validation Loss: 1.1939
+Epoch 5/20 - Loss: 0.9324, Acc: 0.5677
+Validation Loss: 1.2027
+Epoch 6/20 - Loss: 0.9141, Acc: 0.5651
+Validation Loss: 1.1977
+Epoch 7/20 - Loss: 0.8469, Acc: 0.6096
+Validation Loss: 1.1664
+Early stopping triggered
+Test Accuracy: 0.386411889596603
+Confusion Matrix:
+[[49 42 77]
+ [28 57 77]
+ [30 35 76]]
+Training with Seed=87209
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1329, Acc: 0.4210
+Validation Loss: 1.1869
+Epoch 2/20 - Loss: 1.0570, Acc: 0.4701
+Validation Loss: 1.1594
+Epoch 3/20 - Loss: 0.9885, Acc: 0.5193
+Validation Loss: 1.1528
+Epoch 4/20 - Loss: 0.9917, Acc: 0.5319
+Validation Loss: 1.1872
+Epoch 5/20 - Loss: 0.9333, Acc: 0.5332
+Validation Loss: 1.1651
+Epoch 6/20 - Loss: 0.9212, Acc: 0.5591
+Validation Loss: 1.1839
+Epoch 7/20 - Loss: 0.8563, Acc: 0.6069
+Validation Loss: 1.2159
+Epoch 8/20 - Loss: 0.8127, Acc: 0.6321
+Validation Loss: 1.1900
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[45 86 37]
+ [30 99 33]
+ [33 62 46]]
+Training with Seed=679
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1427, Acc: 0.4343
+Validation Loss: 1.1495
+Epoch 2/20 - Loss: 1.0352, Acc: 0.4794
+Validation Loss: 1.1620
+Epoch 3/20 - Loss: 1.0078, Acc: 0.4947
+Validation Loss: 1.1733
+Epoch 4/20 - Loss: 0.9672, Acc: 0.5398
+Validation Loss: 1.1689
+Epoch 5/20 - Loss: 0.9225, Acc: 0.5697
+Validation Loss: 1.1468
+Epoch 6/20 - Loss: 0.8960, Acc: 0.5936
+Validation Loss: 1.1851
+Epoch 7/20 - Loss: 0.8885, Acc: 0.5644
+Validation Loss: 1.2192
+Epoch 8/20 - Loss: 0.8164, Acc: 0.6242
+Validation Loss: 1.2350
+Epoch 9/20 - Loss: 0.8449, Acc: 0.6368
+Validation Loss: 1.2319
+Epoch 10/20 - Loss: 0.7922, Acc: 0.6467
+Validation Loss: 1.2216
+Early stopping triggered
+Test Accuracy: 0.4267515923566879
+Confusion Matrix:
+[[100  49  19]
+ [ 69  71  22]
+ [ 72  39  30]]
+Training with Seed=222
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1176, Acc: 0.4396
+Validation Loss: 1.1736
+Epoch 2/20 - Loss: 1.0273, Acc: 0.4880
+Validation Loss: 1.1677
+Epoch 3/20 - Loss: 0.9995, Acc: 0.5232
+Validation Loss: 1.1518
+Epoch 4/20 - Loss: 0.9713, Acc: 0.5332
+Validation Loss: 1.1571
+Epoch 5/20 - Loss: 0.9135, Acc: 0.5863
+Validation Loss: 1.1686
+Epoch 6/20 - Loss: 0.8893, Acc: 0.5863
+Validation Loss: 1.1728
+Epoch 7/20 - Loss: 0.8369, Acc: 0.6255
+Validation Loss: 1.2124
+Epoch 8/20 - Loss: 0.8359, Acc: 0.6208
+Validation Loss: 1.2157
+Early stopping triggered
+Test Accuracy: 0.3651804670912951
+Confusion Matrix:
+[[26 70 72]
+ [18 73 71]
+ [12 56 73]]
+Training with Seed=62
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1264, Acc: 0.4389
+Validation Loss: 1.1329
+Epoch 2/20 - Loss: 1.0581, Acc: 0.4807
+Validation Loss: 1.1836
+Epoch 3/20 - Loss: 1.0242, Acc: 0.4993
+Validation Loss: 1.1647
+Epoch 4/20 - Loss: 0.9654, Acc: 0.5551
+Validation Loss: 1.1676
+Epoch 5/20 - Loss: 0.9047, Acc: 0.5664
+Validation Loss: 1.1460
+Epoch 6/20 - Loss: 0.8915, Acc: 0.5850
+Validation Loss: 1.1768
+Early stopping triggered
+Test Accuracy: 0.4140127388535032
+Confusion Matrix:
+[[49 74 45]
+ [27 86 49]
+ [35 46 60]]
+Training with Seed=45
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1472, Acc: 0.4177
+Validation Loss: 1.1518
+Epoch 2/20 - Loss: 1.0675, Acc: 0.4801
+Validation Loss: 1.1806
+Epoch 3/20 - Loss: 1.0064, Acc: 0.5073
+Validation Loss: 1.1754
+Epoch 4/20 - Loss: 0.9635, Acc: 0.5525
+Validation Loss: 1.1779
+Epoch 5/20 - Loss: 0.9413, Acc: 0.5584
+Validation Loss: 1.2013
+Epoch 6/20 - Loss: 0.8780, Acc: 0.5976
+Validation Loss: 1.2281
+Early stopping triggered
+Test Accuracy: 0.4012738853503185
+Confusion Matrix:
+[[27 73 68]
+ [13 83 66]
+ [11 51 79]]
+Training with Seed=235
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1470, Acc: 0.4017
+Validation Loss: 1.1845
+Epoch 2/20 - Loss: 1.0408, Acc: 0.4821
+Validation Loss: 1.1947
+Epoch 3/20 - Loss: 1.0060, Acc: 0.5120
+Validation Loss: 1.1601
+Epoch 4/20 - Loss: 0.9539, Acc: 0.5511
+Validation Loss: 1.1851
+Epoch 5/20 - Loss: 0.9144, Acc: 0.5850
+Validation Loss: 1.1894
+Epoch 6/20 - Loss: 0.9049, Acc: 0.5823
+Validation Loss: 1.1702
+Epoch 7/20 - Loss: 0.8507, Acc: 0.6235
+Validation Loss: 1.2083
+Epoch 8/20 - Loss: 0.8110, Acc: 0.6282
+Validation Loss: 1.1980
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[58 47 63]
+ [26 61 75]
+ [33 35 73]]
+Training with Seed=333
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1470, Acc: 0.4197
+Validation Loss: 1.1541
+Epoch 2/20 - Loss: 1.0522, Acc: 0.4821
+Validation Loss: 1.1600
+Epoch 3/20 - Loss: 0.9979, Acc: 0.5232
+Validation Loss: 1.1858
+Epoch 4/20 - Loss: 0.9575, Acc: 0.5618
+Validation Loss: 1.2195
+Epoch 5/20 - Loss: 0.9666, Acc: 0.5385
+Validation Loss: 1.2150
+Epoch 6/20 - Loss: 0.8775, Acc: 0.6029
+Validation Loss: 1.1750
+Early stopping triggered
+Test Accuracy: 0.43736730360934184
+Confusion Matrix:
+[[111  35  22]
+ [ 71  65  26]
+ [ 76  35  30]]
+Training with Seed=35744
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1527, Acc: 0.3871
+Validation Loss: 1.1407
+Epoch 2/20 - Loss: 1.0575, Acc: 0.4814
+Validation Loss: 1.1723
+Epoch 3/20 - Loss: 1.0194, Acc: 0.4900
+Validation Loss: 1.1649
+Epoch 4/20 - Loss: 0.9575, Acc: 0.5491
+Validation Loss: 1.1195
+Epoch 5/20 - Loss: 0.9617, Acc: 0.5385
+Validation Loss: 1.1958
+Epoch 6/20 - Loss: 0.8788, Acc: 0.5983
+Validation Loss: 1.1584
+Epoch 7/20 - Loss: 0.8429, Acc: 0.6142
+Validation Loss: 1.1712
+Epoch 8/20 - Loss: 0.8304, Acc: 0.6235
+Validation Loss: 1.1952
+Epoch 9/20 - Loss: 0.8044, Acc: 0.6434
+Validation Loss: 1.2426
+Early stopping triggered
+Test Accuracy: 0.40552016985138006
+Confusion Matrix:
+[[31 69 68]
+ [22 87 53]
+ [17 51 73]]
+Training with Seed=2523
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1328, Acc: 0.4256
+Validation Loss: 1.1503
+Epoch 2/20 - Loss: 1.0326, Acc: 0.4907
+Validation Loss: 1.1624
+Epoch 3/20 - Loss: 1.0024, Acc: 0.4993
+Validation Loss: 1.1592
+Epoch 4/20 - Loss: 0.9706, Acc: 0.5226
+Validation Loss: 1.1529
+Epoch 5/20 - Loss: 0.9170, Acc: 0.5637
+Validation Loss: 1.2238
+Epoch 6/20 - Loss: 0.8690, Acc: 0.5989
+Validation Loss: 1.2043
+Early stopping triggered
+Test Accuracy: 0.3842887473460722
+Confusion Matrix:
+[[89 34 45]
+ [69 49 44]
+ [66 32 43]]
+Training with Seed=235
+torch.Size([32, 43])
+[43, 800, 3]
+Epoch 1/20 - Loss: 1.1491, Acc: 0.3865
+Validation Loss: 1.1609
+Epoch 2/20 - Loss: 1.0742, Acc: 0.4615
+Validation Loss: 1.1285
+Epoch 3/20 - Loss: 0.9905, Acc: 0.5252
+Validation Loss: 1.1866
+Epoch 4/20 - Loss: 0.9800, Acc: 0.5219
+Validation Loss: 1.1920
+Epoch 5/20 - Loss: 0.9265, Acc: 0.5691
+Validation Loss: 1.1701
+Epoch 6/20 - Loss: 0.8894, Acc: 0.5850
+Validation Loss: 1.1831
+Epoch 7/20 - Loss: 0.8905, Acc: 0.5777
+Validation Loss: 1.2308
+Early stopping triggered
+Test Accuracy: 0.37154989384288745
+Confusion Matrix:
+[[61 31 76]
+ [33 43 86]
+ [46 24 71]]
+Avg perf for seed=235: 0.40030882069098633
+Next Dataset . . .pca_val=44
+Training with Seed=748
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1532, Acc: 0.4210
+Validation Loss: 1.1550
+Epoch 2/20 - Loss: 1.0421, Acc: 0.4841
+Validation Loss: 1.1670
+Epoch 3/20 - Loss: 1.0179, Acc: 0.4754
+Validation Loss: 1.1393
+Epoch 4/20 - Loss: 0.9648, Acc: 0.5551
+Validation Loss: 1.1449
+Epoch 5/20 - Loss: 0.9082, Acc: 0.5604
+Validation Loss: 1.1694
+Epoch 6/20 - Loss: 0.8567, Acc: 0.5936
+Validation Loss: 1.1791
+Epoch 7/20 - Loss: 0.8524, Acc: 0.5976
+Validation Loss: 1.1446
+Epoch 8/20 - Loss: 0.8162, Acc: 0.6282
+Validation Loss: 1.1889
+Early stopping triggered
+Test Accuracy: 0.42250530785562634
+Confusion Matrix:
+[[ 54  96  18]
+ [ 30 109  23]
+ [ 30  75  36]]
+Training with Seed=87209
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1477, Acc: 0.4110
+Validation Loss: 1.1767
+Epoch 2/20 - Loss: 1.0577, Acc: 0.4768
+Validation Loss: 1.1711
+Epoch 3/20 - Loss: 0.9795, Acc: 0.5232
+Validation Loss: 1.2524
+Epoch 4/20 - Loss: 0.9659, Acc: 0.5359
+Validation Loss: 1.1605
+Epoch 5/20 - Loss: 0.9153, Acc: 0.5598
+Validation Loss: 1.1682
+Epoch 6/20 - Loss: 0.9537, Acc: 0.5578
+Validation Loss: 1.1671
+Epoch 7/20 - Loss: 0.8743, Acc: 0.6149
+Validation Loss: 1.1631
+Epoch 8/20 - Loss: 0.7896, Acc: 0.6467
+Validation Loss: 1.1851
+Epoch 9/20 - Loss: 0.8185, Acc: 0.6255
+Validation Loss: 1.1711
+Early stopping triggered
+Test Accuracy: 0.4288747346072187
+Confusion Matrix:
+[[62 80 26]
+ [40 97 25]
+ [28 70 43]]
+Training with Seed=679
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1416, Acc: 0.4090
+Validation Loss: 1.1754
+Epoch 2/20 - Loss: 1.0247, Acc: 0.4987
+Validation Loss: 1.2036
+Epoch 3/20 - Loss: 1.0009, Acc: 0.4987
+Validation Loss: 1.1840
+Epoch 4/20 - Loss: 0.9710, Acc: 0.5339
+Validation Loss: 1.1735
+Epoch 5/20 - Loss: 0.9274, Acc: 0.5631
+Validation Loss: 1.2343
+Epoch 6/20 - Loss: 0.9098, Acc: 0.5757
+Validation Loss: 1.1933
+Epoch 7/20 - Loss: 0.8699, Acc: 0.6056
+Validation Loss: 1.1663
+Epoch 8/20 - Loss: 0.8477, Acc: 0.6262
+Validation Loss: 1.2014
+Epoch 9/20 - Loss: 0.8274, Acc: 0.6328
+Validation Loss: 1.1812
+Epoch 10/20 - Loss: 0.7991, Acc: 0.6521
+Validation Loss: 1.2150
+Epoch 11/20 - Loss: 0.7434, Acc: 0.6939
+Validation Loss: 1.2398
+Epoch 12/20 - Loss: 0.7254, Acc: 0.6965
+Validation Loss: 1.2536
+Early stopping triggered
+Test Accuracy: 0.42462845010615713
+Confusion Matrix:
+[[91 52 25]
+ [66 71 25]
+ [54 49 38]]
+Training with Seed=222
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1454, Acc: 0.4243
+Validation Loss: 1.1468
+Epoch 2/20 - Loss: 1.0059, Acc: 0.4920
+Validation Loss: 1.1627
+Epoch 3/20 - Loss: 1.0023, Acc: 0.4947
+Validation Loss: 1.1647
+Epoch 4/20 - Loss: 0.9649, Acc: 0.5332
+Validation Loss: 1.1498
+Epoch 5/20 - Loss: 0.9450, Acc: 0.5558
+Validation Loss: 1.1504
+Epoch 6/20 - Loss: 0.9229, Acc: 0.5611
+Validation Loss: 1.1854
+Early stopping triggered
+Test Accuracy: 0.4182590233545648
+Confusion Matrix:
+[[ 50  94  24]
+ [ 27 110  25]
+ [ 22  82  37]]
+Training with Seed=62
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1429, Acc: 0.4170
+Validation Loss: 1.1402
+Epoch 2/20 - Loss: 1.0564, Acc: 0.4814
+Validation Loss: 1.1776
+Epoch 3/20 - Loss: 0.9924, Acc: 0.5226
+Validation Loss: 1.2004
+Epoch 4/20 - Loss: 0.9363, Acc: 0.5651
+Validation Loss: 1.1545
+Epoch 5/20 - Loss: 0.9101, Acc: 0.5544
+Validation Loss: 1.1525
+Epoch 6/20 - Loss: 0.8880, Acc: 0.5823
+Validation Loss: 1.1728
+Early stopping triggered
+Test Accuracy: 0.3524416135881104
+Confusion Matrix:
+[[39 71 58]
+ [32 63 67]
+ [22 55 64]]
+Training with Seed=45
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1590, Acc: 0.4256
+Validation Loss: 1.1703
+Epoch 2/20 - Loss: 1.0585, Acc: 0.4854
+Validation Loss: 1.1512
+Epoch 3/20 - Loss: 0.9878, Acc: 0.5086
+Validation Loss: 1.1726
+Epoch 4/20 - Loss: 0.9829, Acc: 0.5405
+Validation Loss: 1.1616
+Epoch 5/20 - Loss: 0.9365, Acc: 0.5710
+Validation Loss: 1.1574
+Epoch 6/20 - Loss: 0.9101, Acc: 0.5770
+Validation Loss: 1.1750
+Epoch 7/20 - Loss: 0.8667, Acc: 0.5890
+Validation Loss: 1.1621
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[67 44 57]
+ [31 64 67]
+ [33 49 59]]
+Training with Seed=235
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1709, Acc: 0.3958
+Validation Loss: 1.1712
+Epoch 2/20 - Loss: 1.0492, Acc: 0.4900
+Validation Loss: 1.1493
+Epoch 3/20 - Loss: 0.9926, Acc: 0.5212
+Validation Loss: 1.2006
+Epoch 4/20 - Loss: 0.9661, Acc: 0.5259
+Validation Loss: 1.1954
+Epoch 5/20 - Loss: 0.9365, Acc: 0.5378
+Validation Loss: 1.2212
+Epoch 6/20 - Loss: 0.9166, Acc: 0.5704
+Validation Loss: 1.2682
+Epoch 7/20 - Loss: 0.8689, Acc: 0.5890
+Validation Loss: 1.2080
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[91 56 21]
+ [76 64 22]
+ [60 46 35]]
+Training with Seed=333
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1494, Acc: 0.4150
+Validation Loss: 1.1468
+Epoch 2/20 - Loss: 1.0735, Acc: 0.4821
+Validation Loss: 1.1341
+Epoch 3/20 - Loss: 1.0108, Acc: 0.5046
+Validation Loss: 1.1427
+Epoch 4/20 - Loss: 0.9343, Acc: 0.5571
+Validation Loss: 1.1754
+Epoch 5/20 - Loss: 0.9302, Acc: 0.5558
+Validation Loss: 1.1623
+Epoch 6/20 - Loss: 0.8633, Acc: 0.5983
+Validation Loss: 1.1710
+Epoch 7/20 - Loss: 0.8553, Acc: 0.6175
+Validation Loss: 1.1775
+Early stopping triggered
+Test Accuracy: 0.43312101910828027
+Confusion Matrix:
+[[113  37  18]
+ [ 84  50  28]
+ [ 72  28  41]]
+Training with Seed=35744
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1509, Acc: 0.3944
+Validation Loss: 1.1526
+Epoch 2/20 - Loss: 1.0476, Acc: 0.4768
+Validation Loss: 1.1188
+Epoch 3/20 - Loss: 1.0009, Acc: 0.5146
+Validation Loss: 1.1328
+Epoch 4/20 - Loss: 0.9772, Acc: 0.5498
+Validation Loss: 1.1895
+Epoch 5/20 - Loss: 0.9586, Acc: 0.5518
+Validation Loss: 1.1613
+Epoch 6/20 - Loss: 0.8855, Acc: 0.5936
+Validation Loss: 1.1647
+Epoch 7/20 - Loss: 0.8658, Acc: 0.6069
+Validation Loss: 1.1670
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[70 45 53]
+ [37 62 63]
+ [48 33 60]]
+Training with Seed=2523
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1543, Acc: 0.3977
+Validation Loss: 1.2020
+Epoch 2/20 - Loss: 1.0552, Acc: 0.4774
+Validation Loss: 1.2105
+Epoch 3/20 - Loss: 1.0015, Acc: 0.5219
+Validation Loss: 1.2126
+Epoch 4/20 - Loss: 0.9728, Acc: 0.5279
+Validation Loss: 1.1882
+Epoch 5/20 - Loss: 0.9664, Acc: 0.5465
+Validation Loss: 1.1728
+Epoch 6/20 - Loss: 0.8793, Acc: 0.5817
+Validation Loss: 1.1712
+Epoch 7/20 - Loss: 0.8733, Acc: 0.5797
+Validation Loss: 1.2167
+Epoch 8/20 - Loss: 0.8654, Acc: 0.5943
+Validation Loss: 1.2230
+Epoch 9/20 - Loss: 0.8568, Acc: 0.6295
+Validation Loss: 1.2038
+Epoch 10/20 - Loss: 0.7673, Acc: 0.6640
+Validation Loss: 1.1879
+Epoch 11/20 - Loss: 0.7623, Acc: 0.6653
+Validation Loss: 1.2393
+Early stopping triggered
+Test Accuracy: 0.39065817409766457
+Confusion Matrix:
+[[62 33 73]
+ [41 44 77]
+ [37 26 78]]
+Training with Seed=235
+torch.Size([32, 44])
+[44, 800, 3]
+Epoch 1/20 - Loss: 1.1316, Acc: 0.4356
+Validation Loss: 1.1507
+Epoch 2/20 - Loss: 1.0575, Acc: 0.4701
+Validation Loss: 1.2036
+Epoch 3/20 - Loss: 1.0122, Acc: 0.5166
+Validation Loss: 1.2084
+Epoch 4/20 - Loss: 0.9418, Acc: 0.5637
+Validation Loss: 1.1846
+Epoch 5/20 - Loss: 0.9474, Acc: 0.5465
+Validation Loss: 1.1667
+Epoch 6/20 - Loss: 0.8564, Acc: 0.5843
+Validation Loss: 1.1895
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[81 64 23]
+ [76 68 18]
+ [49 51 41]]
+Avg perf for seed=235: 0.4080293379656437
+Next Dataset . . .pca_val=48
+Training with Seed=748
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1641, Acc: 0.4017
+Validation Loss: 1.1491
+Epoch 2/20 - Loss: 1.0349, Acc: 0.4960
+Validation Loss: 1.1672
+Epoch 3/20 - Loss: 1.0106, Acc: 0.5332
+Validation Loss: 1.1534
+Epoch 4/20 - Loss: 0.9314, Acc: 0.5671
+Validation Loss: 1.2117
+Epoch 5/20 - Loss: 0.9207, Acc: 0.5531
+Validation Loss: 1.1906
+Epoch 6/20 - Loss: 0.8764, Acc: 0.5876
+Validation Loss: 1.1924
+Early stopping triggered
+Test Accuracy: 0.3630573248407643
+Confusion Matrix:
+[[ 40  24 104]
+ [ 25  36 101]
+ [ 21  25  95]]
+Training with Seed=87209
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1225, Acc: 0.4396
+Validation Loss: 1.1621
+Epoch 2/20 - Loss: 1.0201, Acc: 0.5033
+Validation Loss: 1.1447
+Epoch 3/20 - Loss: 0.9825, Acc: 0.5266
+Validation Loss: 1.1617
+Epoch 4/20 - Loss: 0.9490, Acc: 0.5392
+Validation Loss: 1.1394
+Epoch 5/20 - Loss: 0.8984, Acc: 0.5870
+Validation Loss: 1.2374
+Epoch 6/20 - Loss: 0.8961, Acc: 0.5817
+Validation Loss: 1.2058
+Epoch 7/20 - Loss: 0.8607, Acc: 0.6175
+Validation Loss: 1.1776
+Epoch 8/20 - Loss: 0.8238, Acc: 0.6408
+Validation Loss: 1.1550
+Epoch 9/20 - Loss: 0.7829, Acc: 0.6507
+Validation Loss: 1.2041
+Early stopping triggered
+Test Accuracy: 0.4033970276008493
+Confusion Matrix:
+[[82 50 36]
+ [64 63 35]
+ [57 39 45]]
+Training with Seed=679
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1679, Acc: 0.4037
+Validation Loss: 1.1549
+Epoch 2/20 - Loss: 1.0485, Acc: 0.4781
+Validation Loss: 1.1547
+Epoch 3/20 - Loss: 0.9888, Acc: 0.5186
+Validation Loss: 1.1651
+Epoch 4/20 - Loss: 0.9456, Acc: 0.5505
+Validation Loss: 1.1819
+Epoch 5/20 - Loss: 0.9039, Acc: 0.5691
+Validation Loss: 1.1573
+Epoch 6/20 - Loss: 0.8743, Acc: 0.5923
+Validation Loss: 1.2066
+Epoch 7/20 - Loss: 0.8577, Acc: 0.6189
+Validation Loss: 1.1688
+Early stopping triggered
+Test Accuracy: 0.40764331210191085
+Confusion Matrix:
+[[91 48 29]
+ [73 59 30]
+ [63 36 42]]
+Training with Seed=222
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1393, Acc: 0.4104
+Validation Loss: 1.1543
+Epoch 2/20 - Loss: 1.0364, Acc: 0.4834
+Validation Loss: 1.1963
+Epoch 3/20 - Loss: 0.9803, Acc: 0.5385
+Validation Loss: 1.1545
+Epoch 4/20 - Loss: 0.9672, Acc: 0.5525
+Validation Loss: 1.2716
+Epoch 5/20 - Loss: 0.9276, Acc: 0.5850
+Validation Loss: 1.1368
+Epoch 6/20 - Loss: 0.8964, Acc: 0.6042
+Validation Loss: 1.2338
+Epoch 7/20 - Loss: 0.8619, Acc: 0.6109
+Validation Loss: 1.1768
+Epoch 8/20 - Loss: 0.7953, Acc: 0.6580
+Validation Loss: 1.2148
+Epoch 9/20 - Loss: 0.7899, Acc: 0.6328
+Validation Loss: 1.2062
+Epoch 10/20 - Loss: 0.7934, Acc: 0.6448
+Validation Loss: 1.2124
+Early stopping triggered
+Test Accuracy: 0.4012738853503185
+Confusion Matrix:
+[[58 49 61]
+ [32 67 63]
+ [34 43 64]]
+Training with Seed=62
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1353, Acc: 0.4137
+Validation Loss: 1.1826
+Epoch 2/20 - Loss: 1.0588, Acc: 0.4807
+Validation Loss: 1.1989
+Epoch 3/20 - Loss: 1.0100, Acc: 0.5073
+Validation Loss: 1.1892
+Epoch 4/20 - Loss: 0.9444, Acc: 0.5405
+Validation Loss: 1.2201
+Epoch 5/20 - Loss: 0.9503, Acc: 0.5538
+Validation Loss: 1.2182
+Epoch 6/20 - Loss: 0.8427, Acc: 0.6288
+Validation Loss: 1.2013
+Early stopping triggered
+Test Accuracy: 0.3885350318471338
+Confusion Matrix:
+[[81 52 35]
+ [61 53 48]
+ [55 37 49]]
+Training with Seed=45
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1300, Acc: 0.4077
+Validation Loss: 1.1632
+Epoch 2/20 - Loss: 1.0492, Acc: 0.4814
+Validation Loss: 1.1307
+Epoch 3/20 - Loss: 0.9813, Acc: 0.5259
+Validation Loss: 1.1625
+Epoch 4/20 - Loss: 0.9090, Acc: 0.5910
+Validation Loss: 1.1518
+Epoch 5/20 - Loss: 0.8859, Acc: 0.5983
+Validation Loss: 1.1355
+Epoch 6/20 - Loss: 0.8794, Acc: 0.5956
+Validation Loss: 1.1515
+Epoch 7/20 - Loss: 0.8151, Acc: 0.6560
+Validation Loss: 1.1990
+Early stopping triggered
+Test Accuracy: 0.386411889596603
+Confusion Matrix:
+[[55 31 82]
+ [35 44 83]
+ [33 25 83]]
+Training with Seed=235
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1390, Acc: 0.4256
+Validation Loss: 1.2153
+Epoch 2/20 - Loss: 1.0165, Acc: 0.5040
+Validation Loss: 1.1453
+Epoch 3/20 - Loss: 0.9891, Acc: 0.5133
+Validation Loss: 1.2504
+Epoch 4/20 - Loss: 0.9104, Acc: 0.5644
+Validation Loss: 1.1948
+Epoch 5/20 - Loss: 0.9476, Acc: 0.5531
+Validation Loss: 1.1727
+Epoch 6/20 - Loss: 0.8965, Acc: 0.6029
+Validation Loss: 1.1905
+Epoch 7/20 - Loss: 0.8492, Acc: 0.6096
+Validation Loss: 1.1988
+Early stopping triggered
+Test Accuracy: 0.3524416135881104
+Confusion Matrix:
+[[45 42 81]
+ [32 40 90]
+ [36 24 81]]
+Training with Seed=333
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1554, Acc: 0.3851
+Validation Loss: 1.1622
+Epoch 2/20 - Loss: 1.0659, Acc: 0.4768
+Validation Loss: 1.1887
+Epoch 3/20 - Loss: 0.9801, Acc: 0.5491
+Validation Loss: 1.2001
+Epoch 4/20 - Loss: 0.9512, Acc: 0.5578
+Validation Loss: 1.2100
+Epoch 5/20 - Loss: 0.9118, Acc: 0.5883
+Validation Loss: 1.1289
+Epoch 6/20 - Loss: 0.8456, Acc: 0.6208
+Validation Loss: 1.1324
+Epoch 7/20 - Loss: 0.8177, Acc: 0.6467
+Validation Loss: 1.2067
+Epoch 8/20 - Loss: 0.8034, Acc: 0.6335
+Validation Loss: 1.2193
+Epoch 9/20 - Loss: 0.7977, Acc: 0.6414
+Validation Loss: 1.3439
+Epoch 10/20 - Loss: 0.7882, Acc: 0.6687
+Validation Loss: 1.1684
+Early stopping triggered
+Test Accuracy: 0.35881104033970274
+Confusion Matrix:
+[[41 53 74]
+ [29 55 78]
+ [30 38 73]]
+Training with Seed=35744
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1390, Acc: 0.4197
+Validation Loss: 1.1990
+Epoch 2/20 - Loss: 1.0520, Acc: 0.4509
+Validation Loss: 1.1614
+Epoch 3/20 - Loss: 0.9699, Acc: 0.5292
+Validation Loss: 1.1627
+Epoch 4/20 - Loss: 0.9071, Acc: 0.5810
+Validation Loss: 1.1917
+Epoch 5/20 - Loss: 0.9006, Acc: 0.5956
+Validation Loss: 1.1639
+Epoch 6/20 - Loss: 0.8933, Acc: 0.5830
+Validation Loss: 1.1882
+Epoch 7/20 - Loss: 0.8480, Acc: 0.6135
+Validation Loss: 1.1965
+Early stopping triggered
+Test Accuracy: 0.3821656050955414
+Confusion Matrix:
+[[43 33 92]
+ [24 49 89]
+ [22 31 88]]
+Training with Seed=2523
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1240, Acc: 0.4163
+Validation Loss: 1.1578
+Epoch 2/20 - Loss: 1.0391, Acc: 0.4947
+Validation Loss: 1.1746
+Epoch 3/20 - Loss: 0.9750, Acc: 0.5133
+Validation Loss: 1.1677
+Epoch 4/20 - Loss: 0.9636, Acc: 0.5186
+Validation Loss: 1.1601
+Epoch 5/20 - Loss: 0.9240, Acc: 0.5730
+Validation Loss: 1.1665
+Epoch 6/20 - Loss: 0.8579, Acc: 0.6116
+Validation Loss: 1.1741
+Early stopping triggered
+Test Accuracy: 0.3885350318471338
+Confusion Matrix:
+[[44 81 43]
+ [27 92 43]
+ [29 65 47]]
+Training with Seed=235
+classify.py:387: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  features = torch.tensor(features, dtype=torch.float32)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+/home/crsnell/pivot_repo/dnn.py:20: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  nn.init.xavier_uniform(layer.weight)
+torch.Size([32, 48])
+[48, 800, 3]
+Epoch 1/20 - Loss: 1.1468, Acc: 0.4177
+Validation Loss: 1.1751
+Epoch 2/20 - Loss: 1.0520, Acc: 0.4841
+Validation Loss: 1.1698
+Epoch 3/20 - Loss: 0.9862, Acc: 0.5219
+Validation Loss: 1.1480
+Epoch 4/20 - Loss: 0.9336, Acc: 0.5498
+Validation Loss: 1.1931
+Epoch 5/20 - Loss: 0.9073, Acc: 0.5637
+Validation Loss: 1.1780
+Epoch 6/20 - Loss: 0.8630, Acc: 0.6122
+Validation Loss: 1.3223
+Epoch 7/20 - Loss: 0.8738, Acc: 0.6069
+Validation Loss: 1.2290
+Epoch 8/20 - Loss: 0.8207, Acc: 0.6375
+Validation Loss: 1.1883
+Early stopping triggered
+Test Accuracy: 0.3885350318471338
+Confusion Matrix:
+[[66 75 27]
+ [52 79 31]
+ [39 64 38]]
+Avg perf for seed=235: 0.38370970855047287
+pca_vals=[40, 41, 42, 43, 44, 48]
+pca_perfs=[0.40069484655471926, 0.4020459370777843, 0.4062922215788458, 0.40030882069098633, 0.4080293379656437, 0.38370970855047287]

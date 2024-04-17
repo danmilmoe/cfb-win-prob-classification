@@ -12,21 +12,24 @@ from sklearn.decomposition import PCA
 
 RUN_NAME = 'unique'
 RUN_NOTES = 'these are notes, if needed'
-DATASET_DIR = f'dataset_{RUN_NAME}'
+DATASET_DIR = f'binned_by_drive_0'
 csv_dir = 'threads'
 wp_dir = 'win_probs'
 drive_dir = 'drive_win_probs'
 
-BINNING_POLICY = 'drive'
+BINNING_POLICY = 'spike'
 NORM_POLICY = 'standard'
 CLASS_POLICY = 'ternary'
 
-
-THRESHOLD = 0.03
-RANDOM_STATE = 345
+random_state = 345
 BATCH_SIZE = 32
 DROPOUT_RATE = 0.2
-DNN_LAYERS = [77, 468, 3]
+THRESHOLD = 0.05
+
+class_policy_func, n_classes = get_class_info(CLASS_POLICY)
+
+
+dnn_layers = [77, 800, n_classes]
 
 
 PATIENCE = 5
@@ -43,10 +46,10 @@ NORM_POLICY: {NORM_POLICY}
 CLASS_POLICY: {CLASS_POLICY}
 
 THRESHOLD: {THRESHOLD}
-RANDOM_STATE: {RANDOM_STATE}
+random_state: {random_state}
 BATCH_SIZE: {BATCH_SIZE}
 DROPOUT_RATE: {DROPOUT_RATE}
-DNN_LAYERS: {DNN_LAYERS}
+dnn_layers: {dnn_layers}
 
 PATIENCE: {PATIENCE}
 MAX_EPOCHS: {MAX_EPOCHS}
@@ -58,8 +61,6 @@ print(info)
 
 if not os.path.exists(DATASET_DIR):
     os.makedirs(DATASET_DIR)
-
-class_policy_func, n_classes = get_class_info(CLASS_POLICY)
 
 # returns features, targets
 def load_existing_dataset(filename):
@@ -109,8 +110,8 @@ def load_existing_dataset(filename):
     # Convert lists to PyTorch tensors
     targets = torch.tensor(targets, dtype=torch.long)
     # Splitting data into training, validation, and test sets
-    X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=RANDOM_STATE)
-    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=RANDOM_STATE)
+    X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=random_state)
+    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=random_state)
 
     # Creating PyTorch datasets
     train_dataset = TensorDataset(X_train, y_train)
@@ -131,11 +132,55 @@ def load_existing_dataset(filename):
     return train_loader, val_loader, test_loader
 
 
-def make_datasets(n_components):
+def make_dataloaders(pca, features, targets):
+    if torch.isnan(features).any():
+        print("NaN values found in features, replacing with 0")
+        features[torch.isnan(features)] = 0
+
+    if torch.isinf(features).any():
+        print("Infinite values found in features, replacing with 0")
+        features[torch.isinf(features)] = 0
+
+    # Normalize features
+    mean = features.mean(dim=0)
+    std = features.std(dim=0)
+    features = (features - mean) / (std + 1e-6)  # Adding a small constant to avoid division by zero
+
+    # Splitting data into training, validation, and test sets
+    X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=random_state)
+    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=random_state)
+
+    X_train_copy = X_train.clone()
+    pca.fit(X_train_copy.numpy())
+
+    X_train_pca = torch.tensor(pca.transform(X_train.numpy()), dtype=torch.float32)
+    X_val_pca = torch.tensor(pca.transform(X_val.numpy()), dtype=torch.float32)
+    X_test_pca = torch.tensor(pca.transform(X_test.numpy()), dtype=torch.float32)
+
+    # Creating PyTorch datasets
+    train_dataset = TensorDataset(X_train_pca, y_train)
+    val_dataset = TensorDataset(X_val_pca, y_val)
+    test_dataset = TensorDataset(X_test_pca, y_test)
+
+    # Create a WeightedRandomSampler for the training set to handle class imbalance
+    class_sample_count = torch.tensor([(y_train == t).sum() for t in torch.unique(y_train, sorted=True)])
+    weight = 1. / class_sample_count.float()
+    samples_weight = torch.tensor([weight[t] for t in y_train])
+    sampler = WeightedRandomSampler(weights=samples_weight, num_samples=len(samples_weight), replacement=True)
+
+    # Creating data loaders
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, sampler=sampler)
+    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+
+    return train_loader, val_loader, test_loader
+
+
+def make_datasets(n_components_list):
     binning_policy_func = get_binning_policy(BINNING_POLICY)
     norm_policy_func = get_norm_policy(NORM_POLICY)
-    pca = PCA(n_components=n_components)
 
+    dataloaders = []
     # These are the columns that we care about
     columns_to_keep = ['created_utc', 'labels'] + feature_columns
     all_game_datapoints = []
@@ -149,6 +194,7 @@ def make_datasets(n_components):
         if not os.path.exists(file_path):
             continue
 
+        print(f"Processing {filename}", flush=True)
         hometeam, awayteam = filename[:-5].split('_')
         intervals = binning_policy_func(filename)
 
@@ -170,7 +216,6 @@ def make_datasets(n_components):
 
     # Data processing for creating dataloaders
     THRESHOLD = 0.03
-    RANDOM_STATE = 690
     BATCH_SIZE = 32
     features = []
     targets = []
@@ -200,36 +245,43 @@ def make_datasets(n_components):
     std = features.std(dim=0)
     features = (features - mean) / (std + 1e-6)
 
-
     # Splitting data into training, validation, and test sets
-    X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=RANDOM_STATE)
-    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=RANDOM_STATE)
+    X_train_val, X_test, y_train_val, y_test = train_test_split(features, targets, test_size=0.2, random_state=random_state)
+    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.2, random_state=random_state)
 
-    pca.fit(X_train)
-    X_train = torch.tensor(pca.transform(X_train), dtype=torch.float32)
-    X_val = torch.tensor(pca.transform(X_val), dtype=torch.float32)
-    X_test = torch.tensor(pca.transform(X_test), dtype=torch.float32)
+    for n_comp in n_components_list:
+        print(f"Fitting PCA with n_c={n_comp}", flush=True)
+        pca = PCA(n_components=n_comp)
+        
+        X_train_copy = X_train.clone()
+        pca.fit(X_train_copy.numpy())
 
-    # Creating PyTorch datasets
-    train_dataset = TensorDataset(X_train, y_train)
-    val_dataset = TensorDataset(X_val, y_val)
-    test_dataset = TensorDataset(X_test, y_test)
+        X_train_pca = torch.tensor(pca.transform(X_train.numpy()), dtype=torch.float32)
+        X_val_pca = torch.tensor(pca.transform(X_val.numpy()), dtype=torch.float32)
+        X_test_pca = torch.tensor(pca.transform(X_test.numpy()), dtype=torch.float32)
 
-    # Create a WeightedRandomSampler for the training set to handle class imbalance
-    class_sample_count = torch.tensor([(y_train == t).sum() for t in torch.unique(y_train, sorted=True)])
-    weight = 1. / class_sample_count.float()
-    samples_weight = torch.tensor([weight[t] for t in y_train])
-    sampler = WeightedRandomSampler(weights=samples_weight, num_samples=len(samples_weight), replacement=True)
+        # Creating PyTorch datasets
+        train_dataset = TensorDataset(X_train_pca, y_train)
+        val_dataset = TensorDataset(X_val_pca, y_val)
+        test_dataset = TensorDataset(X_test_pca, y_test)
 
-    # Creating data loaders
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, sampler=sampler)
-    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
-    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+        # Create a WeightedRandomSampler for the training set to handle class imbalance
+        class_sample_count = torch.tensor([(y_train == t).sum() for t in torch.unique(y_train, sorted=True)])
+        weight = 1. / class_sample_count.float()
+        samples_weight = torch.tensor([weight[t] for t in y_train])
+        sampler = WeightedRandomSampler(weights=samples_weight, num_samples=len(samples_weight), replacement=True)
 
-    return train_loader, val_loader, test_loader
+        # Creating data loaders
+        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, sampler=sampler)
+        val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
+        test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+
+        dataloaders.append((train_loader, val_loader, test_loader))
+
+    return dataloaders
 
 
-def make_model(layers=DNN_LAYERS):
+def make_model(layers=dnn_layers):
     return DNN(layers, DROPOUT_RATE)
 
 
@@ -315,21 +367,46 @@ def eval_model(model, test_loader):
 
 
 if __name__ == "__main__":
-    seeds = [748, 87209, 679, 222, 62, 987]
-    pca_vals = [2, 4, 6, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]
+    features = []
+    targets = []
+
+    for filename in os.listdir(DATASET_DIR):
+        with open(os.path.join(DATASET_DIR, filename), 'r') as json_file:
+            data = json.load(json_file)
+
+        for interval in data["game_datapoints"]:
+            home_vals = list(interval['home_vals'].values())
+            away_vals = list(interval['away_vals'].values())
+            neut_vals = list(interval['neut_vals'].values())
+            
+            feature = np.concatenate((home_vals, away_vals, neut_vals), axis=None)
+            target = class_policy_func(interval['wp_delta'])
+
+            features.append(feature)
+            targets.append(target)
+
+    features = torch.tensor(features, dtype=torch.float32)
+    targets = torch.tensor(targets, dtype=torch.long)
+
+    seeds = [748, 87209, 679, 222, 62, 45, 235, 333, 35744, 2523, 235]
+    pca_vals = [20, 30, 32, 34, 36, 38]
     pca_perfs = []
     for pca_val in pca_vals:
+        train_loader, val_loader, test_loader = make_dataloaders(PCA(pca_val), features, targets)
+        print(f"Next Dataset . . .pca_val={pca_val}", flush=True)
         avg_sum = 0
-        train_loader, val_loader, test_loader = make_datasets(n_components=pca_val)
         for i in seeds:
-            RANDOM_STATE = i
-            new_layers = DNN_LAYERS
+            print(f"Training with Seed={i}", flush=True)
+            random_state = i
+            new_layers = dnn_layers
             train_iter = iter(train_loader)
             # Get the first batch
             first_batch = next(train_iter)
             # Now you can access the data and get its shape
-            new_layers[0] = first_batch[0].shape[0]
-            model = make_model(layers=new_layers)
+            print(first_batch[0].shape)
+            new_layers[0] = first_batch[0].shape[1]
+            print(new_layers)
+            model = DNN(new_layers, DROPOUT_RATE)
 
             train_model(model, train_loader, val_loader)
 

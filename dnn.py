@@ -17,12 +17,12 @@ class DNN(nn.Module):
             self.layers.append(nn.Linear(layers[i], layers[i+1]))
 
         for layer in self.layers:
-            nn.init.xavier_uniform(layer.weight)
+            nn.init.xavier_uniform_(layer.weight)
 
         self.dropout = nn.Dropout(dropout_rate)
         self.output = nn.Linear(layers[-2], layers[-1])
 
-        nn.init.xavier_uniform(self.output.weight)
+        nn.init.xavier_uniform_(self.output.weight)
 
     def forward(self, x):
         for layer in self.layers:
