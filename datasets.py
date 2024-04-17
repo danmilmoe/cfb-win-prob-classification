@@ -14,12 +14,12 @@ csv_dir = 'threads'
 wp_dir = 'win_probs'
 drive_dir = 'drive_win_probs'
 
-BINNING_POLICY = 'drive'
+BINNING_POLICY = 'spike'
 NORM_POLICY = 'standard'
 CLASS_POLICY = 'ternary'
 
 
-THRESHOLD = 0.03
+THRESHOLD = 0.05
 random_state = 345
 BATCH_SIZE = 32
 DROPOUT_RATE = 0.2

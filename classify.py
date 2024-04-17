@@ -196,6 +196,7 @@ def make_datasets(n_components_list):
 
         print(f"Processing {filename}", flush=True)
         hometeam, awayteam = filename[:-5].split('_')
+        print(binning_policy_func)
         intervals = binning_policy_func(filename)
 
         # Iterate through the intervals

@@ -96,7 +96,7 @@ def separate_by_affiliation(
         return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 
-def detect_outliers(y, lag=30, threshold=1, influence=0.5):
+def detect_outliers(y, lag=30, threshold=1.5, influence=0.5):
     # Initialize variables
     signals = np.zeros(len(y))
     filteredY = np.array(y[:lag])
