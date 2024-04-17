@@ -8,23 +8,25 @@ from policies import *
 from helper import *
 from dnn import *
 from sklearn.decomposition import PCA
+import random
 
-
-RUN_NAME = 'unique'
-RUN_NOTES = 'these are notes, if needed'
-DATASET_DIR = f'binned_by_drive_0'
-csv_dir = 'threads'
-wp_dir = 'win_probs'
-drive_dir = 'drive_win_probs'
 
 BINNING_POLICY = 'spike'
 NORM_POLICY = 'standard'
 CLASS_POLICY = 'ternary'
 
+RUN_NAME = 'unique'
+RUN_NOTES = 'these are notes, if needed'
+DATASET_DIR = f'binned_by_{BINNING_POLICY}_5'
+csv_dir = 'threads'
+wp_dir = 'win_probs'
+drive_dir = 'drive_win_probs'
+
+
 random_state = 345
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 DROPOUT_RATE = 0.2
-THRESHOLD = 0.05
+THRESHOLD = 0.006
 
 class_policy_func, n_classes = get_class_info(CLASS_POLICY)
 
@@ -172,7 +174,27 @@ def make_dataloaders(pca, features, targets):
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, sampler=sampler)
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+    
+    def check_class_distribution(loader):
+        # Initialize counts for each class
+        class_counts = torch.zeros(3, dtype=torch.long)  # Assuming 3 classes (0, 1, 2)
+        
+        # Iterate through batches in the given loader
+        for _, labels in loader:
+            for label in labels:
+                class_counts[label] += 1
 
+        return class_counts
+    
+    train_class_counts = check_class_distribution(train_loader)
+    val_class_counts = check_class_distribution(val_loader)
+    test_class_counts = check_class_distribution(test_loader)
+    
+    # Print class counts
+    print("Train Class Counts:", train_class_counts)
+    print("Validation Class Counts:", val_class_counts)
+    print("Test Class Counts:", test_class_counts)
+    
     return train_loader, val_loader, test_loader
 
 
@@ -364,7 +386,7 @@ def eval_model(model, test_loader):
     print("Confusion Matrix:")
     print(cm)
 
-    return accuracy
+    return accuracy, cm
 
 
 if __name__ == "__main__":
@@ -386,16 +408,26 @@ if __name__ == "__main__":
             features.append(feature)
             targets.append(target)
 
+    print(type(targets))
+    targets_array = np.array(targets)
+    print((targets_array == 0).sum().item() / len(targets_array))
+    print((targets_array == 1).sum().item() / len(targets_array))
+    print((targets_array == 2).sum().item() / len(targets_array))
+
+
     features = torch.tensor(features, dtype=torch.float32)
     targets = torch.tensor(targets, dtype=torch.long)
 
-    seeds = [748, 87209, 679, 222, 62, 45, 235, 333, 35744, 2523, 235]
-    pca_vals = [20, 30, 32, 34, 36, 38]
+    seed_range = [0, 105340]
+    seeds = [random.randint(seed_range[0], seed_range[1]) for _ in range(100)]
+    print(seeds)
+    pca_vals = [i*2 for i in range(24)]
     pca_perfs = []
     for pca_val in pca_vals:
         train_loader, val_loader, test_loader = make_dataloaders(PCA(pca_val), features, targets)
         print(f"Next Dataset . . .pca_val={pca_val}", flush=True)
         avg_sum = 0
+        avg_cm = np.zeros((3, 3))
         for i in seeds:
             print(f"Training with Seed={i}", flush=True)
             random_state = i
@@ -411,8 +443,13 @@ if __name__ == "__main__":
 
             train_model(model, train_loader, val_loader)
 
-            avg_sum += eval_model(model, test_loader)
+            acc, cm = eval_model(model, test_loader)
+
+            avg_sum += acc
+            np.add(avg_cm, cm)
+
         pca_perfs.append(avg_sum / len(seeds))
         print(f"Avg perf for seed={i}: {avg_sum / len(seeds)}")
+        print(f"Avg conf matrix={avg_cm / len(seeds)}")
 
     print(f"pca_vals={pca_vals}\npca_perfs={pca_perfs}")

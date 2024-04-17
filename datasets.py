@@ -55,12 +55,15 @@ def make_dataset(output_dir):
 
         file_path = os.path.join(csv_dir, filename[:-5] + ".csv")
         if not os.path.exists(file_path):
+            print(f"skipping {file_path}")
             continue
 
         hometeam, awayteam = filename[:-5].split('_')
 
         # Get the intervals according to 
         intervals = binning_policy_func(filename)
+        if intervals is None:
+            continue
 
         # Iterate through the intervals
 

@@ -10,7 +10,7 @@ wp_dir = 'win_probs'
 drive_dir = 'drive_win_probs'
 
 
-THRESHOLD = 0.05
+THRESHOLD = 0.006
 
 feature_columns = [
     'Segment', 'WC', 'Analytic', 'Clout', 'Authentic', 'Tone', 'WPS', 'BigWords', 'Dic', 'Linguistic', 'function',
@@ -53,6 +53,33 @@ def get_binning_policy(policy: str):
         print(f"INVALID BINNING POLICY: {policy}")
 
 
+def detect_outliers(y, lag=15, threshold=1.2, influence=0.6):
+    # Initialize variables
+    signals = np.zeros(len(y))
+    filteredY = np.array(y[:lag])
+    avgFilter = [0]*len(y)
+    stdFilter = [0]*len(y)
+    avgFilter[lag-1] = np.mean(y[:lag])
+    stdFilter[lag-1] = np.std(y[:lag])
+
+    for i in range(lag, len(y)):
+        if abs(y[i] - avgFilter[i-1]) > threshold * stdFilter[i-1]:
+            if y[i] > avgFilter[i-1]:
+                signals[i] = 1   # Positive signal
+            else:
+                signals[i] = -1  # Negative signal
+            filteredY = np.append(filteredY, influence * y[i] + (1 - influence) * filteredY[i-1])
+        else:
+            signals[i] = 0     # No signal
+            filteredY = np.append(filteredY, y[i])
+        
+        # Update the filters
+        avgFilter[i] = np.mean(filteredY[i-lag+1:i+1])
+        stdFilter[i] = np.std(filteredY[i-lag+1:i+1])
+
+    return signals, np.sum(signals != 0)
+
+
 def bin_by_activity_spike(filename):
     # Step 1: Load the data efficiently
     csv_path = os.path.join(csv_dir, filename[:-5] + '.csv')
@@ -61,79 +88,65 @@ def bin_by_activity_spike(filename):
 
     try:
         # Only read the 'created_utc' column to save memory
-        utc_times = nd.array(pd.read_csv(csv_path, usecols=['created_utc'], squeeze=True, dtype={'created_utc': np.int64}))
+        with open(json_path, 'r') as json_file:
+            wp_data = json.load(json_file)
+
+        # Reading play data from JSON
+        play_utcs = [item["utc"] for item in wp_data]
+        play_wp = [item["home_win_prob"] for item in wp_data]
+        print(play_utcs[0], " -> ", play_utcs[-1])
+
+
+        utc_times = np.array(pd.read_csv(csv_path, usecols=['created_utc'], squeeze=True, dtype={'created_utc': np.int64}))
+        utc_times = utc_times[(utc_times > play_utcs[0]) & (utc_times < play_utcs[-1] + 30)]
     except Exception as e:
+        print(f"Or its {json_path}")
         print(f"Error loading or processing data from {csv_path}: {e}")
         return
 
     # Binning the timestamps
-    num_bins =10
+    num_bins = 120
 
-    norm_val = (utc_bins.max() - utc_bins.min()) / num_bins
+    min_time = utc_times.min()
+    range_time = utc_times.max() - min_time
+    norm_val = range_time / num_bins
 
-    binned_timestamps = np.bincount(utc_bins / norm_val)
+    print(f'min={min_time}, max={utc_times.max()}, range={range_time}, norm_val={norm_val}')
+    # Map timestamps to bins
+    bin_indices = np.floor((utc_times - min_time) / norm_val).astype(int)
+    print(bin_indices)
+    # Count occurrences in each bin
+    binned_timestamps = np.bincount(bin_indices, minlength=num_bins)
+    print(binned_timestamps)
 
     signals, n_peaks = detect_outliers(binned_timestamps)
 
-    print(signals, " ", n_peaks, flush=True)
-    exit(1)
-
-    '''
-        # Polynomial fitting
-        if len(x) > N_EVENTS + 1:
-            try:
-                print(f"Fitting a polynomial of degree {N_EVENTS + 1}")
-                coeffs = np.polyfit(x, binned_timestamps, N_EVENTS + 1)
-                poly = np.poly1d(coeffs)
-            except Exception as e:
-                print("Error in polynomial fitting:", e)
-                return
-
-            if vis:
-                plt.plot(x, binned_timestamps, 'o', label='Data points')
-                plt.plot(x, poly(x), '-', label=f'Polynomial Fit (Degree {N_EVENTS + 1})')
-                plt.legend()
-                plt.show()
-
-            # Step 4: Find derivatives and roots to determine peaks
-            poly_deriv = np.polyder(poly)
-            critical_points = np.roots(poly_deriv)
-            real_critical_points = critical_points[np.isreal(critical_points)].real
-
-            # Filter points to those within the range of x
-            valid_critical_points = real_critical_points[(real_critical_points >= 0) & (real_critical_points <= max(x))]
-
-            # Find which are peaks by checking second derivative
-            poly_second_deriv = np.polyder(poly, 2)
-            peaks = [cp for cp in valid_critical_points if poly_second_deriv(cp) < 0]
-
-            print(f"Polynomial coefficients: {coeffs}")
-            print(f"Critical points (real, within range): {valid_critical_points}")
-            print(f"Peak points: {peaks}")
-        else:
-            print("Insufficient data points for polynomial fitting")
-            return []
-    '''
-    # Reading play data from JSON
-    with open(json_path, 'r') as json_file:
-        wp_data = json.load(json_file)
-
-    play_utcs = [item["utc"] for item in wp_data]
-    play_wp = [item["home_win_prob"] for item in wp_data]
-
+    print(np.where(signals == 1), "\n", n_peaks, flush=True)
+    peak_bins = np.where(signals == 1)[0]  # Get indices of bins that are peaks
     intervals = []
 
-    t_0 = utc_times.min()
-    for peak in peaks:
-        idxa = np.argmin(np.abs(np.array(play_utcs) - (t_0 + peak - UTC_INTERVAL_PRIOR)))
-        idxb = np.argmin(np.abs(np.array(play_utcs) - (t_0 + peak + UTC_INTERVAL_POST)))
+    for bin_index in peak_bins:
+        # Find the timestamps that fall into each peak bin
+        lower_bound = min_time + bin_index * norm_val
+        upper_bound = min_time + (bin_index + 1) * norm_val
+        # Get indices of timestamps within the current peak bin range
+        indices_in_bin = np.where((utc_times >= lower_bound) & (utc_times < upper_bound))[0]
+        # Append the time range and indices
+        intervals.append((lower_bound, upper_bound))
 
-        wp_delta = play_wp[idxa] - play_wp[idxb]
+    intervals_with_wp = []
+    for start, end in intervals:
+        idxa = np.argmin(np.abs(play_utcs - start))  # Closest to start
+        idxb = np.argmin(np.abs(play_utcs - end))    # Closest to end
+        if idxa == idxb:
+            wp_delta = 0  # Handle the case where start and end map to the same index
+        else:
+            wp_delta = play_wp[idxb] - play_wp[idxa]
 
-        intervals.append((int(t_0 + peak - UTC_INTERVAL_PRIOR), int(t_0 + peak + UTC_INTERVAL_POST), wp_delta))
-        print(f"Activity Spike from {intervals[-1][0]} to {intervals[-1][1]}, wp_delta = {wp_delta}")
+        intervals_with_wp.append((int(start), int(end), wp_delta))
+        print(f"Activity Spike from {int(start)} to {int(end)}, wp_delta = {wp_delta}")
 
-    return intervals
+    return intervals_with_wp
 
 
 def bin_by_wp_swings(filename):
@@ -239,7 +252,7 @@ def get_class_info(policy: str):
 
 def ternary_classifier(val):
     # Store each target
-    if abs(val) < THRESHOLD:
+    if val == 0:
         return 0
     elif val > 0:
         return 1
