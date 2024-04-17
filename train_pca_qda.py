@@ -80,13 +80,12 @@ for seed in seeds:
 
 accuracies = [acc for seed, acc in results]
 average_accuracies = np.mean(accuracies)
-print(average_accuracies)
 
-# Create a box plot
 plt.figure(figsize=(10, 6))
 plt.boxplot(accuracies, patch_artist=True)
-plt.title('1000 Seeds in a Pipelined PCA + QDA Model')
+plt.title('1000 Seeds in a Pipelined PCA + QDA Model\nAverage Accuracy: {:.2f}'.format(average_accuracies))
 plt.ylabel('Test Accuracy')
 plt.xlabel('Model')
 plt.grid(True)
-plt.show()
+plt.savefig("QDA.png")
+plt.close()
